@@ -5,9 +5,9 @@ from django.conf import settings
 from django.utils import translation
 from django.core.management import call_command
 
-from currencyware.currency import get_all_countries
-from currencyware.currency import get_all_countries_sorted
-from currencyware.currency import get_all_countries_prioritized
+from currencyware.currency import get_all_currencies
+from currencyware.currency import get_all_currencies_sorted
+from currencyware.currency import get_all_currencies_prioritized
 from currencyware.currency import get_display
 from currencyware import defaults as defs
 
@@ -18,43 +18,33 @@ class TestCountryCase(TestCase):
     """
     def setUp(self):
         # call_command('compilemessages')
-        self.andorra = defs.ALL_CURRENCY_CODES[0]
+        pass
 
     def test_xlate_display(self):
-        name = get_display('AD')
-        self.assertEquals(name, 'Andorra')
-
-    def test_xlate_fa(self):
-        translation.activate('fa')
-        name = get_display('AD')
-        self.assertEquals(name, 'آندورا')
-
-    def test_xlate_fa(self):
-        translation.activate('he')
-        name = get_display('AD')
-        self.assertEquals(name, 'אנדורה')
+        name = get_display('AED')
+        self.assertEquals(name, 'UAE Dirham')
 
     def test_xlate_priority(self):
-        translation.activate('zh-hans')
-        name = get_display('AD')
-        self.assertEquals(name, '安道尔')
+        translation.activate('zh-hant')
+        name = get_display('AED')
+        self.assertEquals(name, '阿拉伯聯合大公國迪拉姆')
 
     def test_xlate_en_unsorted(self):
         translation.activate('en')
-        countries = get_all_countries()
-        self.assertEquals(countries[0][1], 'Andorra')
+        currencies = get_all_currencies()
+        self.assertEquals(currencies[0][1], 'UAE Dirham')
 
     def test_xlate_en_sorted(self):
         translation.activate('en')
-        countries = get_all_countries_sorted()
-        self.assertEquals(countries[0][1], 'Afghanistan')
+        currencies = get_all_currencies_sorted()
+        self.assertEquals(currencies[0][1], 'Afghani')
 
     def test_xlate_en_prioritized(self):
         translation.activate('en')
-        countries = get_all_countries_prioritized()
-        self.assertEquals(countries[0][1], 'Canada')
+        currencies = get_all_currencies_prioritized()
+        self.assertEquals(currencies[0][1], 'Canadian Dollar')
 
     def test_xlate_fa_prioritized(self):
-        translation.activate('fa')
-        countries = get_all_countries_prioritized()
-        self.assertEquals(countries[0][1], 'کانادا')
+        translation.activate('fr')
+        currencies = get_all_currencies_prioritized()
+        self.assertEquals(currencies[0][1], 'Dollar canadien')
