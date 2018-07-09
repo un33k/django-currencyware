@@ -1,0 +1,25 @@
+sudo: false
+language: python
+
+python:
+  - "3.7-dev"
+  - "3.6"
+  - "3.5"
+  - "3.4"
+  - "pypy3"
+
+env:
+  - DJANGO="django==2.0.7"
+  - DJANGO="django==1.11.14"
+
+install:
+  - pip install $DJANGO
+  - pip install -e .
+  - pip install pycodestyle
+  - pip install coveralls
+
+script: coverage run --source=currencyware manage.py test
+
+after_success:
+  coveralls
+
