@@ -1,4 +1,6 @@
+
 from django.db import models
+from django.core.cache import cache
 from django.utils.translation import ugettext as _
 from django.core.validators import MaxValueValidator, MinValueValidator
 
@@ -148,3 +150,23 @@ class Rate(models.Model):
         verbose_name=_('Rate')
         # Note: admin:skip
         verbose_name_plural=_('Rates')
+
+
+    @classmethod
+    def get_rate(cls, source, target):
+        """
+        Returns value in source to target.
+        Example: CAD (source) to EUR (target)
+        Rate.get_rate('CAD', 'EUR') => 0.6501663706682155
+        50 CAD = 50 * 0.6501663706682155 = 32.50831853341077 EUR
+        Base currency is USD
+        """
+        cache_key = 'rate-from-{}-to-{}'.format(source, target)
+        rate = cache.get(cache_key)
+        if rate is None:
+            source_rate = cls.objects.filter(code=source).latest('date')
+            target_rate = cls.objects.filter(code=target).latest('date')
+            if source_rate and target_rate:
+                rate = target_rate.rate / source_rate.rate
+                cache.set(cache_key, rate, 3600) # cache for an hour
+        return rate
