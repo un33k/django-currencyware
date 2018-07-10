@@ -100,7 +100,7 @@ class Rate(models.Model):
     )
 
     # ########## Add new fields above this line #############
-    objects = CustomModelManager()
+    objects = CaseInsensitiveManager()
 
     CASE_INSENSITIVE_FIELDS = ['code', ]
 
