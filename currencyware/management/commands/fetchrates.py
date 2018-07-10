@@ -5,12 +5,15 @@ import logging
 import requests
 from datetime import datetime
 
+from django.conf import settings
 from django.utils import timezone
+from django.utils import translation
 from django.core.management.base import BaseCommand
 from django.core.management.base import CommandError
 
 from toolware.utils.generic import get_days_ago
 
+from ...currency import get_display
 from ...models import Rate, Currency
 from ... import defaults as defs
 
@@ -23,7 +26,8 @@ class Command(BaseCommand):
 
     OXR_URL = defs.OPEN_EXCHANGE_RATES_URL
     OXR_KEY = defs.OPEN_EXCHANGE_RATES_API_KEY
-
+    LANGUAGE_CODE = getattr(settings, 'LANGUAGE_CODE', 'en')
+    
     def add_arguments(self, parser):
         parser.add_argument(
             '-f',
@@ -54,6 +58,8 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
+        translation.activate(self.LANGUAGE_CODE)
+
         self.verbosity = options['verbosity']
         self.days = options['days']
         self.flush = options['flush']
@@ -91,8 +97,9 @@ class Command(BaseCommand):
             created = False
             defaults = {
                 'code': code,
-                'date': updated
+                'date': updated,
                 'rate': rate,
+                'name': get_display(code)
             }
             instance, created = Rate.objects.get_or_create_unique(defaults, ['code', 'date'])
             if created:

@@ -103,7 +103,6 @@ class Rate(models.Model):
         # Note: admin:skip
         _('Name'),
         max_length=100,
-        choices=get_all_currencies_prioritized(),
         null=True,
         blank=True,
         # Note: admin:skip
@@ -134,6 +133,16 @@ class Rate(models.Model):
 
     CASE_INSENSITIVE_FIELDS = ['code', ]
 
+    @property
+    def local_name(self):
+        name = get_display(self.code)
+        if self.code in name:
+            name = self.name
+        return name
+
+    def __str__(self):
+        return self.local_name
+        
     class Meta:
         # Note: admin:skip
         verbose_name=_('Rate')
