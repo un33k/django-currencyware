@@ -42,21 +42,12 @@ class Command(BaseCommand):
             help='overwrite currencies if already found in db'
         )
 
-        parser.add_argument(
-            '-d', '--dry-run',
-            dest='dry',
-            action='store_true',
-            default=False,
-            help='Verify data but do not replace existing data',
-        )
-
     def handle(self, *args, **options):
         verbosity = options['verbosity']
 
         path = options['path'] or self.path
         overwrite = options['overwrite']
         flush = options['flush']
-        dry = options['dry']
         
         if not os.path.isfile(path):
             self.stdout.write('No currency file found at path')
@@ -74,22 +65,8 @@ class Command(BaseCommand):
         if verbosity > 2:
             self.stdout.write('Preparing currency file ...')
 
-        if dry: 
-            return
-
-        try:
-            fp = codecs.open(path, encoding='utf-8')
-        except:
-            self.stdout.write('Failed to open file at path')
-            self.stdout.write(path)
-            return
-
-        try:
-            self.data = json.load(fp)
-        except:
-            self.stdout.write('Failed to load data from file at path')
-            self.stdout.write(path)
-            raise
+        fp = codecs.open(path, encoding='utf-8')
+        self.data = json.load(fp)
 
         new_count, update_count = 0, 0
         for curr in self.data:

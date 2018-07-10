@@ -4,17 +4,14 @@ import codecs
 import logging
 import requests
 import dateparser
+import datetime
 
 from django.core.management.base import BaseCommand
 from django.core.management.base import CommandError
-from django.utils.translation import ugettext as _
-from django.utils import translation
-from django.conf import settings
-from datetime import datetime
 
-from utilware.query import get_or_create_object
+from toolware.utils.generic import get_days_ago
+
 from ...models import Rate, Currency
-
 from ... import defaults as defs
 
 log = logging.getLogger(__name__)
@@ -22,98 +19,72 @@ log = logging.getLogger(__name__)
 
 class Command(BaseCommand):
     # Translators: admin
-    help = _('COMMAND.RATES.LABEL')
+    help = "Fetches live rates from open exchange rates api"
 
-    OXR_URL = defs.OPEN_EXCHANGE_RATE_URL
-    OXR_KEY = defs.OPEN_EXCHANGE_RATE_API_KEY
+    OXR_URL = defs.OPEN_EXCHANGE_RATES_URL
+    OXR_KEY = defs.OPEN_EXCHANGE_RATES_API_KEY
 
     def add_arguments(self, parser):
         parser.add_argument(
-            '-f', '--file', dest='file', default=None,
-            # Translators: admin
-            help=_('COMMAND.RATES.LOAD_JSON'),
-        )
-
-        parser.add_argument(
+            '-f',
             '--flush',
-            action='store_true', dest='flush', default=False,
-            # Translators: admin
-            help=_('COMMAND.RATES.FLUSH_HELP')
+            action='store_true',
+            dest='flush',
+            default=False,
+            help='Remove all rates from db'
         )
 
         parser.add_argument(
+            '-p',
             '--purge',
-            action='store', dest='purge', default=None,
-            # Translators: admin
-            help=_('COMMAND.RATES.PURGE_HELP')
+            action='store',
+            dest='days',
+            type=int,
+            default=-1,
+            help='Remove rates older than x days'
         )
 
     def handle(self, *args, **options):
         self.verbosity = options['verbosity']
-        translation.activate(getattr(settings, 'LANGUAGE_CODE', 'en'))
+        self.days = options['days']
+        self.flush = options['flush']
+        self.dry = options['dry']
 
-        startdate = None
+        if self.flush:
+            self.stdout.write('You are about to delete all rates from db')
+            confirm = input('Are you sure? [yes/no]: ')
+            if confirm == 'yes':
+                Rates.objects.all().delete()
+                self.stdout.write('Rates deleted from db.')
 
-        if options['purge'] is not None:
-            startdate = dateparser.parse(options['purge'])
-            if startdate is None:
-                # Translators: admin
-                raise CommandError(_("ERROR.RATES.PARSE_DATE_FMT").format(date=options['purge']))
+        if verbosity > 2:
+            self.stdout.write('Preparing to fetch rates ...')
 
-        if options['file']:
-            self.get_rates_file(options['file'])
-        else:
-            self.get_rates_http()
+        resp = requests.get(self.OXR_URL, params={'app_id': self.OXR_KEY})
+        if resp.status_code != requests.codes.ok:
+            self.stdout.write('Failed to fetch rates ...')
+            self.stdout.write(resp.text)
+            return
 
-        if options['flush']:
-            self.flush()
+        self.data = json.loads(resp.json())
 
-        self.store_rates()
-
-        if startdate is not None:
-            ForexRate.objects.filter(date < startdate).delete()
-
-    def flush(self):
-        ForexRates.objects.all().delete()
-
-    def get_rates_file(self, fname):
-        try:
-            self.data = json.load(fname)
-        except:
-            # Translators: admin
-            raise CommandError(_("ERROR.FILE.PARSE_FMT").format(file=fname, error=sys.exc_info()[1]))
-
-    def get_rates_http(self):
-        try:
-            r = requests.get(self.OER_URL, params={'app_id': settings.CONFIG_DATA['OER_API_KEY']})
-        except:
-            # Translators: admin
-            raise CommandError(_('ERROR.CURRENCY.RETRIEVE_FMT').format(error=sys.exc_info()[1]))
-
-        if r.status_code != requests.codes.ok:
-            # Translators: admin
-            raise CommandError(_('ERROR.CURRENCY.FAILED_FMT').format(error=r.text))
-
-        try:
-            self.data = r.json()
-        except:
-            # Translators: admin
-            raise CommandError(_('ERROR.CURRENCY.PARSE_FMT').format(error=sys.exc_info()[1]))
-
-    def store_rates(self):
+        new_count, update_count = 0, 0
         updated = datetime.fromtimestamp(self.data['timestamp'])
-
         for code, rate in self.data['rates'].items():
-            # create or update related rates
+            created = False
+            defaults = {
+                'code': code,
+                'rate': rate,
+                'date': updated
+            }
+            instance, created = Rates.objects.get_or_create_unique(defaults, ['code'])
+            if created:
+                new_count += 1
+            else:
+                update_count += 1
+            
+            if not instance and self.verbosity >=3:
+                sys.stdout.write('Failed to create rate for ({code})\n'.format(code=code))
 
-            forex_obj, created = get_or_create_object(
-                ForexRate,
-                ['currency_code'],
-                {
-                    'currency_code': code,
-                    'rate': rate, 'date': updated,
-                }
-            )
-
-            if not forex_obj and self.verbosity >=3:
-                sys.stdout.write('Failed to add/update ForexRate ({code})\n'.format(code=code))
+        self.stdout.write('Created {count} currenies'.format(count=new_count))
+        self.stdout.write('Updated {count} currenies'.format(count=update_count))

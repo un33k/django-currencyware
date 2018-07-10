@@ -5,7 +5,7 @@ from .models import Currency, Rate
 
 @admin.register(Currency)
 class CurrencyAdmin(admin.ModelAdmin):
-    list_display = ('code', 'name', 'symbol', 'number', 'unit', )
+    list_display = ('code', 'name', 'symbol', 'number', 'unit', 'country', )
     search_fields = ('code', 'name', 'number',)
     ordering = ['code', 'name']
 
