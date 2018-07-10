@@ -50,5 +50,5 @@ def get_all_currencies_prioritized(
     prioritized = []
     if (priority_codes and len(priority_codes) > 0):
         prioritized = get_currencies(priority_codes)
-    currencies = get_all_currencies(codes)
+    currencies = get_all_currencies_sorted(codes)
     return prioritized + currencies
