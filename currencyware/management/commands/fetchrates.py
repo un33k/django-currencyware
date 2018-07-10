@@ -5,6 +5,7 @@ import logging
 import requests
 from datetime import datetime
 
+from django.utils import timezone
 from django.core.management.base import BaseCommand
 from django.core.management.base import CommandError
 
@@ -85,7 +86,7 @@ class Command(BaseCommand):
         self.data = resp.json()
 
         new_count, update_count = 0, 0
-        updated = datetime.fromtimestamp(self.data['timestamp'])
+        updated = datetime.fromtimestamp(self.data['timestamp'], tz=timezone.utc)
         for code, rate in self.data['rates'].items():
             created = False
             defaults = {
