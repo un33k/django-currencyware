@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext as _
 from django.core.validators import MaxValueValidator, MinValueValidator
 
-from toolware.utils.query import CaseInsensitiveManager
+from toolware.utils.query import CaseInsensitiveManager, CaseInsensitiveUniqueManager
 from .currency import get_all_currencies_prioritized, get_display
 
 
@@ -48,7 +48,7 @@ class Currency(models.Model):
     ) 
 
     # ########## Add new fields above this line #############
-    objects = CaseInsensitiveManager()
+    objects = CaseInsensitiveUniqueManager()
 
     CASE_INSENSITIVE_FIELDS = ['code', ]
 

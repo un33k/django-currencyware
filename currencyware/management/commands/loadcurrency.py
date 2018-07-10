@@ -2,6 +2,7 @@ import os
 import sys
 import codecs
 import logging
+import json
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -88,18 +89,24 @@ class Command(BaseCommand):
         except:
             self.stdout.write('Failed to load data from file at path')
             self.stdout.write(path)
-            return
+            raise
 
+        import pdb; pdb.set_trace()
         new_count, update_count = 0, 0
-        for curr in data:
+        for curr in self.data:
             created = False
-
+            defaults = {
+                'code': curr.get('code'),
+                'number': curr.get('number', 0),
+                'symbol': curr.get('symbol', ''),
+                'country': ' '.join(curr.get('country', [])),
+            }
             if overwrite:
-                instance, created = Currency.objects.get_or_create_unique(curr, ['code'])
+                instance, created = Currency.objects.get_or_create_unique(defaults, ['code'])
             else:
-                instance = Currency.objects.get_unique_or_none(code=curr['code'])
+                instance = Currency.objects.get_unique_or_none(code=defaults['code'])
                 if not instance:
-                    instance, created = Currency.objects.get_or_create_unique(curr, ['code'])
+                    instance, created = Currency.objects.get_or_create_unique(defaults, ['code'])
 
             if created:
                 new_count += 1
