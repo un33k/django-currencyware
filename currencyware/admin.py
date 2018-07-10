@@ -12,6 +12,6 @@ class CurrencyAdmin(admin.ModelAdmin):
 
 @admin.register(Rate)
 class RateAdmin(admin.ModelAdmin):
-    list_display = ('code', 'rate', 'date', )
-    search_fields = ('code', )
-    ordering = ['code']
+    list_display = ('code', 'rate', 'date', 'name',)
+    search_fields = ('code', 'name',)
+    ordering = ['code', 'name',]
