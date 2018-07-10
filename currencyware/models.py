@@ -3,7 +3,7 @@ from django.utils.translation import ugettext as _
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 from toolware.utils.query import CaseInsensitiveManager
-from .currency import get_all_currencies_prioritized
+from .currency import get_all_currencies_prioritized, get_display
 
 
 class Currency(models.Model):
@@ -54,10 +54,9 @@ class Currency(models.Model):
 
     @property
     def name(self):
-        key = 'ISO_4217.' + self.code.upper()
-        name = _(key)
-        if name == key:
-            return self.code
+        name = get_display(self.code)
+        if self.code in name:
+            name = self.code
         return name
 
     def __str__(self):
