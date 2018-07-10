@@ -91,10 +91,10 @@ class Command(BaseCommand):
             created = False
             defaults = {
                 'code': code,
-                'rate': rate,
                 'date': updated
+                'rate': rate,
             }
-            instance, created = Rate.objects.get_or_create_unique(defaults, ['code'])
+            instance, created = Rate.objects.get_or_create_unique(defaults, ['code', 'date'])
             if created:
                 new_count += 1
             else:
