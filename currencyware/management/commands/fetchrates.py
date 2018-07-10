@@ -3,7 +3,7 @@ import json
 import codecs
 import logging
 import requests
-import datetime
+from datetime import datetime
 
 from django.core.management.base import BaseCommand
 from django.core.management.base import CommandError
@@ -76,14 +76,13 @@ class Command(BaseCommand):
         if not self.load:
             return
 
-        # import pdb; pdb.set_trace()
         resp = requests.get(self.OXR_URL, params={'app_id': self.OXR_KEY})
         if resp.status_code != requests.codes.ok:
             self.stdout.write('Failed to fetch rates ...')
             self.stdout.write(resp.text)
             return
 
-        self.data = json.loads(resp.json())
+        self.data = resp.json()
 
         new_count, update_count = 0, 0
         updated = datetime.fromtimestamp(self.data['timestamp'])

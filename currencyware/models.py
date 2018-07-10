@@ -94,9 +94,20 @@ class Rate(models.Model):
         # Note: admin:skip
         _('Code'),
         max_length=3,
-        choices=get_all_currencies_prioritized(),
+        null=False,
         # Note: admin:skip
         help_text=_('Currency code'),
+    )
+
+    name = models.CharField(
+        # Note: admin:skip
+        _('Name'),
+        max_length=100,
+        choices=get_all_currencies_prioritized(),
+        null=True,
+        blank=True,
+        # Note: admin:skip
+        help_text=_('Curreny name (english)'),
     )
 
     rate = models.FloatField(
