@@ -47,8 +47,11 @@ def get_all_currencies_prioritized(
         codes=defs.ALL_CURRENCY_CODES
     ):
     """ Returns a sorted list of (code, translation) tuples for codes  """
+    currencies = get_all_currencies_sorted(codes)
     prioritized = []
     if (priority_codes and len(priority_codes) > 0):
         prioritized = get_currencies(priority_codes)
-    currencies = get_all_currencies_sorted(codes)
+        for priority in prioritized:
+            if priority in currencies:
+                del currencies[currencies.index(priority)]
     return prioritized + currencies

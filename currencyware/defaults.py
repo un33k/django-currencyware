@@ -29,4 +29,6 @@ ALL_CURRENCY_CODES = getattr(settings, 'ALL_CURRENCY_CODES', [
     'XAF', 'XCD', 'XPF', 'YER', 'ZAR', 'ZMW',
 ])
 
-PRIORITY_CURRENCY_CODES = getattr(settings, 'PRIORITY_CURRENCY_CODES', [])
+PRIORITY_CURRENCY_CODES = getattr(settings, 'PRIORITY_CURRENCY_CODES', [
+    'USD', 'CAD', 'EUR', 'AUD', 'GBP', 'HKD', 'JPY', 'CNY', 'CHF',
+])
