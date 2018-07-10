@@ -18,6 +18,16 @@ class Currency(models.Model):
         help_text=_('Currency code')
     )
 
+    name = models.CharField(
+        # Note: admin:skip
+        _('Name'),
+        max_length=60,
+        null=True,
+        blank=True,
+        # Note: admin:skip
+        help_text=_('Curreny name (english)'),
+    )
+
     number = models.CharField(
         # Note: admin:skip
         _('Number'),
@@ -63,14 +73,14 @@ class Currency(models.Model):
     CASE_INSENSITIVE_FIELDS = ['code', ]
 
     @property
-    def name(self):
+    def local_name(self):
         name = get_display(self.code)
         if self.code in name:
-            name = self.code
+            name = self.name
         return name
 
     def __str__(self):
-        return self.name
+        return self.local_name
 
     class Meta:
         # Note: admin:skip

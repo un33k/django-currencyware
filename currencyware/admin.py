@@ -5,9 +5,9 @@ from .models import Currency, Rate
 
 @admin.register(Currency)
 class CurrencyAdmin(admin.ModelAdmin):
-    list_display = ('code', 'number', 'unit', )
-    search_fields = ('code', )
-    ordering = ['code']
+    list_display = ('code', 'name', 'symbol', 'number', 'unit', )
+    search_fields = ('code', 'name', 'number',)
+    ordering = ['code', 'name']
 
 
 @admin.register(Rate)

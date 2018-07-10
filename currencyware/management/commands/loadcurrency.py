@@ -91,12 +91,12 @@ class Command(BaseCommand):
             self.stdout.write(path)
             raise
 
-        import pdb; pdb.set_trace()
         new_count, update_count = 0, 0
         for curr in self.data:
             created = False
             defaults = {
                 'code': curr.get('code'),
+                'name': curr.get('name', ''),
                 'number': curr.get('number', 0),
                 'symbol': curr.get('symbol', ''),
                 'unit': curr.get('unit', 2),
