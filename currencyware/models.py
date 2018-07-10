@@ -3,6 +3,7 @@ from django.utils.translation import ugettext as _
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 from toolware.utils.query import CaseInsensitiveManager
+from .currency import get_all_currencies_prioritized
 
 
 class Currency(models.Model):
@@ -63,7 +64,48 @@ class Currency(models.Model):
         return self.name
 
     class Meta:
-        # Translators: portal
+        # Note: admin:skip
         verbose_name=_('CURRENCY.LABEL.SINGULAR')
-        # Translators: admin
+        # Note: admin:skip
         verbose_name_plural=_('CURRENCY.LABEL.PLURAL')
+
+
+class Rate(models.Model):
+    code = models.CharField(
+        # Note: admin:skip
+        _('RATE.CURRENCY.CODE'),
+        max_length=3,
+        choices=get_all_currencies_prioritized(),
+        # Note: admin:skip
+        help_text=_('RATE.CURRENCY.CODE.DESC'),
+    )
+
+    rate = models.FloatField(
+        # Note: admin:skip
+        _('RATE.CURRENCY'),
+        null=False,
+        blank=False,
+        default=0.0,
+        # Note: admin:skip
+        help_text=_('RATE.CURRENCY.DESC'),
+    )
+
+    date = models.DateTimeField(
+        # Note: admin:skip
+        _('RATE.DATE'),
+        null=False,
+        blank=False,
+        # Note: admin:skip
+        help_text=_('RATE.DATE.DESC'),
+    )
+
+    # ########## Add new fields above this line #############
+    objects = CustomModelManager()
+
+    CASE_INSENSITIVE_FIELDS = ['code', ]
+
+    class Meta:
+        # Note: admin:skip
+        verbose_name=_('RATE.LABEL.SINGULAR')
+        # Note: admin:skip
+        verbose_name_plural=_('RATE.LABEL.PLURAL')
