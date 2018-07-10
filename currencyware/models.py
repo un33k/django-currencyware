@@ -37,6 +37,16 @@ class Currency(models.Model):
         help_text=_('Currency unit')
     )
 
+    symbol = models.CharField(
+        # Note: admin:skip
+        _('Symbol'),
+        max_length=10,
+        null=True,
+        blank=True,
+        # Note: admin:skip
+        help_text=_('Currency symbol'),
+    )
+
     country = models.CharField(
         # Note: admin:skip
         _('Country'),

@@ -99,6 +99,7 @@ class Command(BaseCommand):
                 'code': curr.get('code'),
                 'number': curr.get('number', 0),
                 'symbol': curr.get('symbol', ''),
+                'unit': curr.get('unit', 2),
                 'country': ' '.join(curr.get('country', [])),
             }
             if overwrite:
