@@ -9,42 +9,42 @@ from .currency import get_all_currencies_prioritized
 class Currency(models.Model):
     code = models.CharField(
         # Note: admin:skip
-        _('CURRENCY.CODOE'),
+        _('Code'),
         max_length=3,
         primary_key=True,
         null=False,
         blank=False,
         # Note: admin:skip
-        help_text=_('CURRENCY.CODE.DESC')
+        help_text=_('Currency code')
     )
 
     number = models.CharField(
         # Note: admin:skip
-        _('CURRENCY.NUMBER'),
+        _('Number'),
         max_length=3,
         null=True,
         blank=True,
         # Note: admin:skip
-        help_text=_('CURRENCY.NUMBER.DESC'),
+        help_text=_('Numeric code'),
     )
 
     unit = models.IntegerField(
         # Note: admin:skip
-        _('CURRENCY.UNITS'),
+        _('Unit'),
         null=True,
         blank=True,
         # Note: admin:skip
-        help_text=_('CURRENCY.UNITS.DESC')
+        help_text=_('Currency unit')
     )
 
     country = models.CharField(
         # Note: admin:skip
-        _('CURRENCY.COUNTRY'),
+        _('Country'),
         max_length=255,
         null=True,
         blank=True,
         # Note: admin:skip
-        help_text=_('CURRENCY.COUNTRY.DESC'),
+        help_text=_('Primary currency in these countries'),
     ) 
 
     # ########## Add new fields above this line #############
@@ -65,38 +65,38 @@ class Currency(models.Model):
 
     class Meta:
         # Note: admin:skip
-        verbose_name=_('CURRENCY.LABEL.SINGULAR')
+        verbose_name=_('Currency')
         # Note: admin:skip
-        verbose_name_plural=_('CURRENCY.LABEL.PLURAL')
+        verbose_name_plural=_('Currencies')
 
 
 class Rate(models.Model):
     code = models.CharField(
         # Note: admin:skip
-        _('RATE.CURRENCY.CODE'),
+        _('Code'),
         max_length=3,
         choices=get_all_currencies_prioritized(),
         # Note: admin:skip
-        help_text=_('RATE.CURRENCY.CODE.DESC'),
+        help_text=_('Currency code'),
     )
 
     rate = models.FloatField(
         # Note: admin:skip
-        _('RATE.CURRENCY'),
+        _('Rate'),
         null=False,
         blank=False,
         default=0.0,
         # Note: admin:skip
-        help_text=_('RATE.CURRENCY.DESC'),
+        help_text=_('Currency forex rate'),
     )
 
     date = models.DateTimeField(
         # Note: admin:skip
-        _('RATE.DATE'),
+        _('Date'),
         null=False,
         blank=False,
         # Note: admin:skip
-        help_text=_('RATE.DATE.DESC'),
+        help_text=_("Rate's date"),
     )
 
     # ########## Add new fields above this line #############
@@ -106,6 +106,6 @@ class Rate(models.Model):
 
     class Meta:
         # Note: admin:skip
-        verbose_name=_('RATE.LABEL.SINGULAR')
+        verbose_name=_('Rate')
         # Note: admin:skip
-        verbose_name_plural=_('RATE.LABEL.PLURAL')
+        verbose_name_plural=_('Rates')
