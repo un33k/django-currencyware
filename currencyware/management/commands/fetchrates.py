@@ -13,8 +13,9 @@ from django.conf import settings
 from datetime import datetime
 
 from utilware.query import get_or_create_object
-from ...models import ForexRate, Currency
+from ...models import Rate, Currency
 
+from ... import defaults as defs
 
 log = logging.getLogger(__name__)
 
@@ -23,7 +24,8 @@ class Command(BaseCommand):
     # Translators: admin
     help = _('COMMAND.RATES.LABEL')
 
-    OER_URL = "https://openexchangerates.org/api/latest.json"
+    OXR_URL = defs.OPEN_EXCHANGE_RATE_URL
+    OXR_KEY = defs.OPEN_EXCHANGE_RATE_API_KEY
 
     def add_arguments(self, parser):
         parser.add_argument(
