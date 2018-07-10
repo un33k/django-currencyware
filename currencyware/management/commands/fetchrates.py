@@ -68,19 +68,20 @@ class Command(BaseCommand):
         if self.verbosity > 2:
             self.stdout.write('Preparing to fetch rates ...')
 
+        if self.days >= 0:
+            days_ago = get_days_ago(self.days)
+            Rate.objects.filter(date__lte=days_ago).delete()
+            self.stdout.write('Purged rates older than ({}) ago from db.'.format(self.days))
+
         if not self.load:
             return
 
+        # import pdb; pdb.set_trace()
         resp = requests.get(self.OXR_URL, params={'app_id': self.OXR_KEY})
         if resp.status_code != requests.codes.ok:
             self.stdout.write('Failed to fetch rates ...')
             self.stdout.write(resp.text)
             return
-
-        if self.days >= 0:
-            days_ago = get_days_ago(self.days)
-            Rate.objects.filter(data_lte=days_ago).delete()
-            self.stdout.write('Purged rates older than ({}) ago from db.'.format(days))
 
         self.data = json.loads(resp.json())
 
