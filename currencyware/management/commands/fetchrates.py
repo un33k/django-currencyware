@@ -3,7 +3,6 @@ import json
 import codecs
 import logging
 import requests
-import dateparser
 import datetime
 
 from django.core.management.base import BaseCommand
@@ -44,27 +43,44 @@ class Command(BaseCommand):
             help='Remove rates older than x days'
         )
 
+        parser.add_argument(
+            '-l',
+            '--load',
+            action='store_true',
+            dest='load',
+            default=False,
+            help='Fetch and load all rates to db'
+        )
+
     def handle(self, *args, **options):
         self.verbosity = options['verbosity']
         self.days = options['days']
         self.flush = options['flush']
-        self.dry = options['dry']
+        self.load = options['load']
 
         if self.flush:
             self.stdout.write('You are about to delete all rates from db')
             confirm = input('Are you sure? [yes/no]: ')
             if confirm == 'yes':
-                Rates.objects.all().delete()
-                self.stdout.write('Rates deleted from db.')
+                Rate.objects.all().delete()
+                self.stdout.write('Flushed rates from db.')
 
-        if verbosity > 2:
+        if self.verbosity > 2:
             self.stdout.write('Preparing to fetch rates ...')
+
+        if not self.load:
+            return
 
         resp = requests.get(self.OXR_URL, params={'app_id': self.OXR_KEY})
         if resp.status_code != requests.codes.ok:
             self.stdout.write('Failed to fetch rates ...')
             self.stdout.write(resp.text)
             return
+
+        if self.days >= 0:
+            days_ago = get_days_ago(self.days)
+            Rate.objects.filter(data_lte=days_ago).delete()
+            self.stdout.write('Purged rates older than ({}) ago from db.'.format(days))
 
         self.data = json.loads(resp.json())
 
@@ -77,7 +93,7 @@ class Command(BaseCommand):
                 'rate': rate,
                 'date': updated
             }
-            instance, created = Rates.objects.get_or_create_unique(defaults, ['code'])
+            instance, created = Rate.objects.get_or_create_unique(defaults, ['code'])
             if created:
                 new_count += 1
             else:
