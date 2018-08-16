@@ -1,4 +1,16 @@
+## 0.0.6
+
+Enhancement:
+
+  - Add command help
+
 ## 0.0.5
+
+Bugfix:
+
+  - Add json file to package
+
+## 0.0.4
 
 Packaging:
 
