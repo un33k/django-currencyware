@@ -1,12 +1,18 @@
+## 0.0.4
+
+Packaging:
+
+  - Add json file to package
+
 ## 0.0.3
 
-Enhacement:
+Enhancement:
 
   - Add support for cache backend
 
 ## 0.0.2
 
-Enhacement:
+Enhancement:
 
   - Add tests
 
