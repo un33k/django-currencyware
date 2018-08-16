@@ -44,7 +44,6 @@ class Command(BaseCommand):
             action='store',
             dest='days',
             type=int,
-            default=-1,
             help='Remove rates older than x days'
         )
 
@@ -59,12 +58,15 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         translation.activate(self.LANGUAGE_CODE)
-
         self.verbosity = options['verbosity']
         self.days = options['days']
         self.flush = options['flush']
         self.load = options['load']
 
+        if not (self.flush and self.days and self.load):
+            self.print_help("", subcommand='loadcurrency')
+            return
+            
         if self.flush:
             self.stdout.write('You are about to delete all rates from db')
             confirm = input('Are you sure? [yes/no]: ')
@@ -72,7 +74,7 @@ class Command(BaseCommand):
                 Rate.objects.all().delete()
                 self.stdout.write('Flushed rates from db.')
 
-        if self.days >= 0:
+        if self.days and self.days > 0:
             days_ago = get_days_ago(self.days)
             Rate.objects.filter(date__lte=days_ago).delete()
             self.stdout.write('Purged rates older than ({}) ago from db.'.format(self.days))
