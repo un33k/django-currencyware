@@ -63,7 +63,7 @@ class Command(BaseCommand):
         self.flush = options['flush']
         self.load = options['load']
 
-        if not (self.flush and self.days and self.load):
+        if not (self.flush or self.days or self.load):
             self.print_help("", subcommand='loadcurrency')
             return
             
