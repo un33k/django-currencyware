@@ -169,7 +169,7 @@ class Rate(models.Model):
                 target_rate = cls.objects.filter(code=target).latest('date')
                 if source_rate and target_rate:
                     rate = target_rate.rate / source_rate.rate
-            except DoesNotExist as err:
+            except cls.DoesNotExist as err:
                 rate = 0.0
         cache.set(cache_key, rate, 1200) # cache for 20 min
         return rate
