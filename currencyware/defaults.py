@@ -1,5 +1,7 @@
 from django.conf import settings
 
+DEFAULT_CURRENY_LANGUAGE_CODE = getattr(settings, 'DEFAULT_CURRENY_LANGUAGE_CODE', 'en')
+
 # https://justforex.com/education/currencies
 ALL_CURRENCY_CODES = getattr(settings, 'ALL_CURRENCY_CODES', [
     'AED', 'AFN', 'ALL', 'AMD', 'AOA', 'ARS',

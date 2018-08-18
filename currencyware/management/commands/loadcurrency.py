@@ -7,8 +7,10 @@ import json
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.core.management.base import CommandError
+from django.utils.translation import activate
 
 from ...models import Currency, Rate
+from ...currency import get_display
 
 logger = logging.getLogger(__name__)
 
@@ -68,12 +70,13 @@ class Command(BaseCommand):
         fp = codecs.open(path, encoding='utf-8')
         self.data = json.load(fp)
 
+        activate(defs.DEFAULT_CURRENY_LANGUAGE_CODE)
         new_count, update_count = 0, 0
         for curr in self.data:
             created = False
             defaults = {
                 'code': curr.get('code'),
-                'name': curr.get('name', ''),
+                'name': get_display(curr.get('code')),
                 'number': curr.get('number', 0),
                 'symbol': curr.get('symbol', ''),
                 'unit': curr.get('unit', 2),
