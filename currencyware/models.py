@@ -161,15 +161,13 @@ class Rate(models.Model):
         Default base currency is USD and can be changed via BASE_CURRENY_CODE
         in settings.py
         """
-        cache_key = 'rate-from-{}-to-{}'.format(source, target)
-        rate = cache.get(cache_key)
-        if rate is None:
-            try:
-                source_rate = cls.objects.filter(code=source).latest('date')
-                target_rate = cls.objects.filter(code=target).latest('date')
-                if source_rate and target_rate:
-                    rate = target_rate.rate / source_rate.rate
-            except cls.DoesNotExist as err:
-                rate = 0.0
-        cache.set(cache_key, rate, 1200) # cache for 20 min
+        try:
+            source_rate = cls.objects.filter(code=source).latest('date')
+            if target == defs.BASE_CURRENY_CODE:
+                return source_rate.rate
+            target_rate = cls.objects.filter(code=target).latest('date')
+            if source_rate and target_rate:
+                rate = target_rate.rate / source_rate.rate
+        except cls.DoesNotExist as err:
+            rate = 0.0
         return rate
