@@ -85,7 +85,7 @@ class Command(BaseCommand):
         if self.verbosity > 2:
             self.stdout.write('Preparing to fetch rates ...')
 
-        resp = requests.get(self.OXR_URL, params={'app_id': self.OXR_KEY, 'base': 'USD'})
+        resp = requests.get(self.OXR_URL, params={'app_id': self.OXR_KEY, 'base': defs.BASE_CURRENY_CODE})
         if resp.status_code != requests.codes.ok:
             self.stdout.write('Failed to fetch rates ...')
             self.stdout.write(resp.text)

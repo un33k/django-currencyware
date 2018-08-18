@@ -33,6 +33,8 @@ PRIORITY_CURRENCY_CODES = getattr(settings, 'PRIORITY_CURRENCY_CODES', [
     'USD', 'CAD', 'EUR', 'AUD', 'GBP', 'HKD', 'JPY', 'CNY', 'CHF',
 ])
 
+BASE_CURRENY_CODE = getattr(settings, 'BASE_CURRENY_CODE', 'USD')
+
 OPEN_EXCHANGE_RATES_URL = 'https://openexchangerates.org/api/latest.json'
 OPEN_EXCHANGE_RATES_URL = getattr(settings, 'OPEN_EXCHANGE_RATES_URL', OPEN_EXCHANGE_RATES_URL)
 OPEN_EXCHANGE_RATES_API_KEY = getattr(settings, 'OPEN_EXCHANGE_RATES_API_KEY', None)

@@ -6,6 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 from toolware.utils.query import CaseInsensitiveManager, CaseInsensitiveUniqueManager
 from .currency import get_all_currencies_prioritized, get_display
+from . import defaults as defs
 
 
 class Currency(models.Model):
@@ -29,7 +30,7 @@ class Currency(models.Model):
         # Note: admin:skip
         help_text=_('Curreny name (english)'),
     )
-
+    
     number = models.CharField(
         # Note: admin:skip
         _('Number'),
@@ -72,7 +73,7 @@ class Currency(models.Model):
     # ########## Add new fields above this line #############
     objects = CaseInsensitiveUniqueManager()
 
-    CASE_INSENSITIVE_FIELDS = ['code', ]
+    CASE_INSENSITIVE_FIELDS = ['code', 'name']
 
     @property
     def local_name(self):
@@ -100,7 +101,6 @@ class Rate(models.Model):
         # Note: admin:skip
         help_text=_('Currency code'),
     )
-
     name = models.CharField(
         # Note: admin:skip
         _('Name'),
@@ -110,7 +110,6 @@ class Rate(models.Model):
         # Note: admin:skip
         help_text=_('Curreny name (english)'),
     )
-
     rate = models.FloatField(
         # Note: admin:skip
         _('Rate'),
@@ -133,7 +132,7 @@ class Rate(models.Model):
     # ########## Add new fields above this line #############
     objects = CaseInsensitiveUniqueManager()
 
-    CASE_INSENSITIVE_FIELDS = ['code', ]
+    CASE_INSENSITIVE_FIELDS = ['code', 'name',]
 
     @property
     def local_name(self):
@@ -153,20 +152,24 @@ class Rate(models.Model):
 
 
     @classmethod
-    def get_rate(cls, source, target):
+    def get_rate(cls, source, target=defs.BASE_CURRENY_CODE):
         """
         Returns value in source to target.
         Example: CAD (source) to EUR (target)
         Rate.get_rate('CAD', 'EUR') => 0.6501663706682155
         50 CAD = 50 * 0.6501663706682155 = 32.50831853341077 EUR
-        Base currency is USD
+        Default base currency is USD and can be changed via BASE_CURRENY_CODE
+        in settings.py
         """
         cache_key = 'rate-from-{}-to-{}'.format(source, target)
         rate = cache.get(cache_key)
         if rate is None:
-            source_rate = cls.objects.filter(code=source).latest('date')
-            target_rate = cls.objects.filter(code=target).latest('date')
-            if source_rate and target_rate:
-                rate = target_rate.rate / source_rate.rate
-                cache.set(cache_key, rate, 3600) # cache for an hour
+            try:
+                source_rate = cls.objects.filter(code=source).latest('date')
+                target_rate = cls.objects.filter(code=target).latest('date')
+                if source_rate and target_rate:
+                    rate = target_rate.rate / source_rate.rate
+            except DoesNotExist as err:
+                rate = 0.0
+        cache.set(cache_key, rate, 1200) # cache for 20 min
         return rate
