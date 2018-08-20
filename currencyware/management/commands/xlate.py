@@ -26,7 +26,7 @@ class Command(BaseCommand):
     # Experimental 
     help = "Fetches live rates from Google translation api"
     path = os.path.abspath(os.path.join(os.path.realpath(__file__), '../../../', 'locale'))
-
+    from_locale = 'en'
     GOOGLE_TRANSLATE_URL = defs.GOOGLE_TRANSLATE_URL
     GOOGLE_API_KEY = defs.GOOGLE_API_KEY
     
@@ -47,15 +47,35 @@ class Command(BaseCommand):
             return
 
         locales = locale.split(' ')
-        for locale in locales:
-            self.translate(locale)
+        self.process(locales)
 
 
-    def translate(self, locale):
+    def process(self, locales):
         if self.verbosity > 2:
             self.stdout.write('Preparing to fetch translations for locale {} ...'.format(locale))
 
-        locale = locale.replace('_', '-')
+        from_locale = os.path.join(self.path, self.from_locale, 'LC_MESSAGES', 'django.po')
+        with codecs.open(from_locale, encoding='utf-8') as from_fp:
+            from_fp.read()
+            # from_blocks = po.pofile()
+            # for block in from_blocks.units:
+            #     print(block)
+        
+            return
+            # for locale in locales:
+            #     to_locale = os.path.join(self.path, locale, 'LC_MESSAGES', 'django.po')
+            #         with codecs.open(to_locale, 'a+', encoding='utf-8') as to_fp:
+
+            #     self.xlate(to_fp, locale)
+
+    def xlate(self, from_fp, locale):
+        to_locale = os.path.join(self.path, locale, 'LC_MESSAGES', 'django.po')
+        with codecs.open(to_locale, 'a+', encoding='utf-8') as fp:
+            return 
+
+        if os.path.isfile(next):
+            
+            locale = locale.replace('_', '-').lower()
 
         resp = requests.get(
             self.GOOGLE_TRANSLATE_URL,
