@@ -30,14 +30,6 @@ class Command(BaseCommand):
     
     def add_arguments(self, parser):
         parser.add_argument(
-            '--flush',
-            action='store_true',
-            dest='flush',
-            default=False,
-            help='Remove all rates from db'
-        )
-
-        parser.add_argument(
             '--purge',
             action='store',
             dest='days',
@@ -46,10 +38,10 @@ class Command(BaseCommand):
         )
 
         parser.add_argument(
-            '-p',
-            '--poll',
+            '-f',
+            '--fetch',
             action='store_true',
-            dest='poll',
+            dest='fetch',
             default=False,
             help='Fetch and load all rates to db'
         )
@@ -57,28 +49,24 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         translation.activate(self.LANGUAGE_CODE)
         self.verbosity = options['verbosity']
-        self.days = options['days']
-        self.flush = options['flush']
-        self.poll = options['poll']
+        days = options['days']
+        fetch = options['fetch']
 
-        if not (self.flush or self.days or self.poll):
-            self.print_help("", subcommand='loadcurrency')
+        if not (days or fetch):
+            self.print_help("", subcommand='rate')
             return
-            
-        if self.flush:
-            self.flush_all()
 
-        if self.days:
-            if self.days < 2:
+        if days:
+            if days < 2:
                 # purge only after 2 days old (compensate for UTC)
                 self.stdout.write('Purge can be done on data 2 days or older')
                 return
-            self.purge_outdated()
+            self.purge(days)
 
-        if self.poll:
-            self.fetch_all()
+        if fetch:
+            self.fetch()
 
-    def fetch_all(self):
+    def fetch(self):
 
         if self.verbosity > 2:
             self.stdout.write('Preparing to fetch rates ...')
@@ -89,11 +77,10 @@ class Command(BaseCommand):
             self.stdout.write(resp.text)
             return
 
-        self.data = resp.json()
-
+        data = resp.json()
         new_count, update_count = 0, 0
-        updated = datetime.fromtimestamp(self.data['timestamp'], tz=timezone.utc)
-        for code, rate in self.data['rates'].items():
+        updated = datetime.fromtimestamp(data['timestamp'], tz=timezone.utc)
+        for code, rate in data['rates'].items():
             created = False
             defaults = {
                 'code': code,
@@ -113,14 +100,10 @@ class Command(BaseCommand):
         self.stdout.write('Created {count} currenies'.format(count=new_count))
         self.stdout.write('Updated {count} currenies'.format(count=update_count))
 
-    def flush_all(self):
-        self.stdout.write('You are about to delete all rates from db')
-        confirm = input('Are you sure? [yes/no]: ')
-        if confirm == 'yes':
-            Rate.objects.all().delete()
-            self.stdout.write('Flushed rates from db.')
-    
-    def purge_outdated(self):
-        days_ago = get_days_ago(self.days)
+
+    def purge(self, days):
+        print('purged')
+        return
+        days_ago = get_days_ago(days)
         Rate.objects.filter(date__lte=days_ago).delete()
-        self.stdout.write('Purged rates older than ({}) ago from db.'.format(self.days))
+        self.stdout.write('Purged rates older than ({}) ago from db.'.format(days))

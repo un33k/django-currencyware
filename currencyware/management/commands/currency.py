@@ -27,7 +27,7 @@ class Command(BaseCommand):
             '--path',
             dest='path',
             default=self.path,
-            help='path to a directory for currencies file.'
+            help='Path to a directory for currencies file.'
         )
 
         parser.add_argument(
@@ -35,7 +35,16 @@ class Command(BaseCommand):
             dest='flush',
             default=False,
             action='store_true',
-            help='delete all existing currencies in db'
+            help='Delete all existing currencies in db'
+        )
+
+        parser.add_argument(
+            '-l',
+            '--load',
+            dest='load',
+            action='store_true',
+            default=False,
+            help='Load currencies from data file'
         )
 
         parser.add_argument(
@@ -44,7 +53,7 @@ class Command(BaseCommand):
             dest='overwrite',
             action='store_true',
             default=False,
-            help='overwrite currencies if already found in db'
+            help='Overwrite currencies if already found in db'
         )
 
     def handle(self, *args, **options):
@@ -53,11 +62,17 @@ class Command(BaseCommand):
         path = options['path'] or self.path
         overwrite = options['overwrite']
         flush = options['flush']
+        load = options['load']
         
+        if not (flush or load):
+            self.print_help("", subcommand='currency')
+            return
+            
+
         if not os.path.isfile(path):
             self.stdout.write('No currency file found at path')
             self.stdout.write(path)
-            self.print_help("", subcommand='loadcurrency')
+            self.print_help("", subcommand='currency')
             return
 
         if flush:
