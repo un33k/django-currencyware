@@ -11,6 +11,7 @@ from django.utils.translation import activate
 
 from ...models import Currency, Rate
 from ...currency import get_display
+from ... import defaults as defs
 
 logger = logging.getLogger(__name__)
 
