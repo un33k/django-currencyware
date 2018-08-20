@@ -40,3 +40,7 @@ BASE_CURRENY_CODE = getattr(settings, 'BASE_CURRENY_CODE', 'USD')
 OPEN_EXCHANGE_RATES_URL = 'https://openexchangerates.org/api/latest.json'
 OPEN_EXCHANGE_RATES_URL = getattr(settings, 'OPEN_EXCHANGE_RATES_URL', OPEN_EXCHANGE_RATES_URL)
 OPEN_EXCHANGE_RATES_API_KEY = getattr(settings, 'OPEN_EXCHANGE_RATES_API_KEY', None)
+
+GOOGLE_API_KEY = getattr(settings, 'GOOGLE_API_KEY', None)
+GOOGLE_TRANSLATE_URL = 'https://www.googleapis.com/language/translate/v2'
+# https://www.googleapis.com/language/translate/v2?key=xyz&q=Euro&source=en&target=zh-Hant
