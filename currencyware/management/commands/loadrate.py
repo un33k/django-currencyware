@@ -30,7 +30,6 @@ class Command(BaseCommand):
     
     def add_arguments(self, parser):
         parser.add_argument(
-            '-f',
             '--flush',
             action='store_true',
             dest='flush',
@@ -39,7 +38,6 @@ class Command(BaseCommand):
         )
 
         parser.add_argument(
-            '-p',
             '--purge',
             action='store',
             dest='days',
@@ -48,10 +46,10 @@ class Command(BaseCommand):
         )
 
         parser.add_argument(
-            '-l',
-            '--load',
+            '-p',
+            '--poll',
             action='store_true',
-            dest='load',
+            dest='poll',
             default=False,
             help='Fetch and load all rates to db'
         )
@@ -61,26 +59,22 @@ class Command(BaseCommand):
         self.verbosity = options['verbosity']
         self.days = options['days']
         self.flush = options['flush']
-        self.load = options['load']
+        self.poll = options['poll']
 
-        if not (self.flush or self.days or self.load):
+        if not (self.flush or self.days or self.poll):
             self.print_help("", subcommand='loadcurrency')
             return
             
         if self.flush:
-            self.stdout.write('You are about to delete all rates from db')
-            confirm = input('Are you sure? [yes/no]: ')
-            if confirm == 'yes':
-                Rate.objects.all().delete()
-                self.stdout.write('Flushed rates from db.')
+            self.flush_all()
 
         if self.days and self.days > 0:
-            days_ago = get_days_ago(self.days)
-            Rate.objects.filter(date__lte=days_ago).delete()
-            self.stdout.write('Purged rates older than ({}) ago from db.'.format(self.days))
+            self.purge_outdated()
 
-        if not self.load:
-            return
+        if self.poll:
+            self.fetch_all()
+
+    def fetch_all(self):
 
         if self.verbosity > 2:
             self.stdout.write('Preparing to fetch rates ...')
@@ -114,3 +108,15 @@ class Command(BaseCommand):
 
         self.stdout.write('Created {count} currenies'.format(count=new_count))
         self.stdout.write('Updated {count} currenies'.format(count=update_count))
+
+    def flush_all(self):
+        self.stdout.write('You are about to delete all rates from db')
+        confirm = input('Are you sure? [yes/no]: ')
+        if confirm == 'yes':
+            Rate.objects.all().delete()
+            self.stdout.write('Flushed rates from db.')
+    
+    def purge_outdated(self):
+        days_ago = get_days_ago(self.days)
+        Rate.objects.filter(date__lte=days_ago).delete()
+        self.stdout.write('Purged rates older than ({}) ago from db.'.format(self.days))
