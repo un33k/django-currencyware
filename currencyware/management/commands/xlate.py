@@ -12,6 +12,7 @@ from django.utils import translation
 from django.core.management.base import BaseCommand
 from django.core.management.base import CommandError
 
+from translate.storage import po
 from toolware.utils.generic import get_days_ago
 
 from ...currency import get_display
@@ -22,7 +23,7 @@ log = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
-    # Translators: admin
+    # Experimental 
     help = "Fetches live rates from Google translation api"
     path = os.path.abspath(os.path.join(os.path.realpath(__file__), '../../../', 'locale'))
 
@@ -51,5 +52,22 @@ class Command(BaseCommand):
 
 
     def translate(self, locale):
+        if self.verbosity > 2:
+            self.stdout.write('Preparing to fetch translations for locale {} ...'.format(locale))
+
         locale = locale.replace('_', '-')
-        print('processing ({}) ...'.format(locale))       
+
+        resp = requests.get(
+            self.GOOGLE_TRANSLATE_URL,
+            params={
+                'key': self.GOOGLE_API_KEY,
+                'q': query,
+                'source': 'en',
+                'target': locale
+            }
+        )
+
+        if resp.status_code != requests.codes.ok:
+            self.stdout.write('Failed to fetch rates ...')
+            self.stdout.write(resp.text)
+            return
