@@ -27,7 +27,7 @@ class Command(BaseCommand):
             '--path',
             dest='path',
             default=self.path,
-            help='Path to a directory for currencies file.'
+            help='Path to a json currency file.'
         )
 
         parser.add_argument(
@@ -58,7 +58,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.verbosity = options['verbosity']
-        path = options['path'] or self.path
+        path = options['path']
         overwrite = options['overwrite']
         flush = options['flush']
         load = options['load']
