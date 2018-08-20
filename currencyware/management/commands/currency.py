@@ -57,8 +57,7 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        verbosity = options['verbosity']
-
+        self.verbosity = options['verbosity']
         path = options['path'] or self.path
         overwrite = options['overwrite']
         flush = options['flush']
@@ -67,28 +66,36 @@ class Command(BaseCommand):
         if not (flush or load):
             self.print_help("", subcommand='currency')
             return
-            
 
+        if flush:
+            self.flush()
+
+        if load:
+            self.load(path, overwrite)
+    
+    def flush(self):
+        self.stdout.write('You are about to delete all currencies from db')
+        confirm = input('Are you sure? [yes/no]: ')
+        if confirm == 'yes':
+            Currency.objects.all().delete()
+            self.stdout.write('Currencies deleted from db.')
+
+    def load(self, path, overwrite):
+            
         if not os.path.isfile(path):
             self.stdout.write('No currency file found at path')
             self.stdout.write(path)
             self.print_help("", subcommand='currency')
             return
 
-        if flush:
-            self.stdout.write('You are about to delete all currencies from db')
-            confirm = input('Are you sure? [yes/no]: ')
-            if confirm == 'yes':
-                Currency.objects.all().delete()
-                self.stdout.write('Currencies deleted from db.')
+        activate(defs.DEFAULT_CURRENY_LANGUAGE_CODE)
 
-        if verbosity > 2:
+        if self.verbosity > 2:
             self.stdout.write('Preparing currency file ...')
 
         fp = codecs.open(path, encoding='utf-8')
         self.data = json.load(fp)
 
-        activate(defs.DEFAULT_CURRENY_LANGUAGE_CODE)
         new_count, update_count = 0, 0
         for curr in self.data:
             created = False
