@@ -1,0 +1,529 @@
+# Translation of ISO 4217 to LANGUAGE
+# Codes for the representation of currencies
+#
+# This file is distributed under the same license as the iso-codes package.
+#
+# Copyright ©
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: iso_4217\n"
+"Report-Msgid-Bugs-To: Debian iso-codes team <pkg-isocodes-devel@lists.alioth.debian.org>\n"
+"POT-Creation-Date: 2016-03-05 21:58+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "ISO_4217.AED"
+msgstr "ISO_4217.AED"
+
+msgid "ISO_4217.AFN"
+msgstr "ISO_4217.AFN"
+
+msgid "ISO_4217.ALL"
+msgstr "ISO_4217.ALL"
+
+msgid "ISO_4217.AMD"
+msgstr "ISO_4217.AMD"
+
+msgid "ISO_4217.ANG"
+msgstr "ISO_4217.ANG"
+
+msgid "ISO_4217.AOA"
+msgstr "ISO_4217.AOA"
+
+msgid "ISO_4217.ARS"
+msgstr "ISO_4217.ARS"
+
+msgid "ISO_4217.AUD"
+msgstr "ISO_4217.AUD"
+
+msgid "ISO_4217.AWG"
+msgstr "ISO_4217.AWG"
+
+msgid "ISO_4217.AZN"
+msgstr "ISO_4217.AZN"
+
+msgid "ISO_4217.BAM"
+msgstr "ISO_4217.BAM"
+
+msgid "ISO_4217.BBD"
+msgstr "ISO_4217.BBD"
+
+msgid "ISO_4217.BDT"
+msgstr "ISO_4217.BDT"
+
+msgid "ISO_4217.BGN"
+msgstr "ISO_4217.BGN"
+
+msgid "ISO_4217.BHD"
+msgstr "ISO_4217.BHD"
+
+msgid "ISO_4217.BIF"
+msgstr "ISO_4217.BIF"
+
+msgid "ISO_4217.BMD"
+msgstr "ISO_4217.BMD"
+
+msgid "ISO_4217.BND"
+msgstr "ISO_4217.BND"
+
+msgid "ISO_4217.BOB"
+msgstr "ISO_4217.BOB"
+
+msgid "ISO_4217.BRL"
+msgstr "ISO_4217.BRL"
+
+msgid "ISO_4217.BSD"
+msgstr "ISO_4217.BSD"
+
+msgid "ISO_4217.BTN"
+msgstr "ISO_4217.BTN"
+
+msgid "ISO_4217.BWP"
+msgstr "ISO_4217.BWP"
+
+msgid "ISO_4217.BYR"
+msgstr "ISO_4217.BYR"
+
+msgid "ISO_4217.BZD"
+msgstr "ISO_4217.BZD"
+
+msgid "ISO_4217.CAD"
+msgstr "ISO_4217.CAD"
+
+msgid "ISO_4217.CDF"
+msgstr "ISO_4217.CDF"
+
+msgid "ISO_4217.CHF"
+msgstr "ISO_4217.CHF"
+
+msgid "ISO_4217.CLP"
+msgstr "ISO_4217.CLP"
+
+msgid "ISO_4217.CNY"
+msgstr "ISO_4217.CNY"
+
+msgid "ISO_4217.COP"
+msgstr "ISO_4217.COP"
+
+msgid "ISO_4217.CRC"
+msgstr "ISO_4217.CRC"
+
+msgid "ISO_4217.CUC"
+msgstr "ISO_4217.CUC"
+
+msgid "ISO_4217.CUP"
+msgstr "ISO_4217.CUP"
+
+msgid "ISO_4217.CVE"
+msgstr "ISO_4217.CVE"
+
+msgid "ISO_4217.CZK"
+msgstr "ISO_4217.CZK"
+
+msgid "ISO_4217.DJF"
+msgstr "ISO_4217.DJF"
+
+msgid "ISO_4217.DKK"
+msgstr "ISO_4217.DKK"
+
+msgid "ISO_4217.DOP"
+msgstr "ISO_4217.DOP"
+
+msgid "ISO_4217.DZD"
+msgstr "ISO_4217.DZD"
+
+msgid "ISO_4217.EGP"
+msgstr "ISO_4217.EGP"
+
+msgid "ISO_4217.ERN"
+msgstr "ISO_4217.ERN"
+
+msgid "ISO_4217.ETB"
+msgstr "ISO_4217.ETB"
+
+msgid "ISO_4217.EUR"
+msgstr "ISO_4217.EUR"
+
+msgid "ISO_4217.FJD"
+msgstr "ISO_4217.FJD"
+
+msgid "ISO_4217.FKP"
+msgstr "ISO_4217.FKP"
+
+msgid "ISO_4217.GBP"
+msgstr "ISO_4217.GBP"
+
+msgid "ISO_4217.GEL"
+msgstr "ISO_4217.GEL"
+
+msgid "ISO_4217.GHS"
+msgstr "ISO_4217.GHS"
+
+msgid "ISO_4217.GIP"
+msgstr "ISO_4217.GIP"
+
+msgid "ISO_4217.GMD"
+msgstr "ISO_4217.GMD"
+
+msgid "ISO_4217.GNF"
+msgstr "ISO_4217.GNF"
+
+msgid "ISO_4217.GTQ"
+msgstr "ISO_4217.GTQ"
+
+msgid "ISO_4217.GYD"
+msgstr "ISO_4217.GYD"
+
+msgid "ISO_4217.HKD"
+msgstr "ISO_4217.HKD"
+
+msgid "ISO_4217.HNL"
+msgstr "ISO_4217.HNL"
+
+msgid "ISO_4217.HRK"
+msgstr "ISO_4217.HRK"
+
+msgid "ISO_4217.HTG"
+msgstr "ISO_4217.HTG"
+
+msgid "ISO_4217.HUF"
+msgstr "ISO_4217.HUF"
+
+msgid "ISO_4217.IDR"
+msgstr "ISO_4217.IDR"
+
+msgid "ISO_4217.ILS"
+msgstr "ISO_4217.ILS"
+
+msgid "ISO_4217.INR"
+msgstr "ISO_4217.INR"
+
+msgid "ISO_4217.IQD"
+msgstr "ISO_4217.IQD"
+
+msgid "ISO_4217.IRR"
+msgstr "ISO_4217.IRR"
+
+msgid "ISO_4217.ISK"
+msgstr "ISO_4217.ISK"
+
+msgid "ISO_4217.JMD"
+msgstr "ISO_4217.JMD"
+
+msgid "ISO_4217.JOD"
+msgstr "ISO_4217.JOD"
+
+msgid "ISO_4217.JPY"
+msgstr "ISO_4217.JPY"
+
+msgid "ISO_4217.KES"
+msgstr "ISO_4217.KES"
+
+msgid "ISO_4217.KGS"
+msgstr "ISO_4217.KGS"
+
+msgid "ISO_4217.KHR"
+msgstr "ISO_4217.KHR"
+
+msgid "ISO_4217.KMF"
+msgstr "ISO_4217.KMF"
+
+msgid "ISO_4217.KPW"
+msgstr "ISO_4217.KPW"
+
+msgid "ISO_4217.KRW"
+msgstr "ISO_4217.KRW"
+
+msgid "ISO_4217.KWD"
+msgstr "ISO_4217.KWD"
+
+msgid "ISO_4217.KYD"
+msgstr "ISO_4217.KYD"
+
+msgid "ISO_4217.KZT"
+msgstr "ISO_4217.KZT"
+
+msgid "ISO_4217.LAK"
+msgstr "ISO_4217.LAK"
+
+msgid "ISO_4217.LBP"
+msgstr "ISO_4217.LBP"
+
+msgid "ISO_4217.LKR"
+msgstr "ISO_4217.LKR"
+
+msgid "ISO_4217.LRD"
+msgstr "ISO_4217.LRD"
+
+msgid "ISO_4217.LSL"
+msgstr "ISO_4217.LSL"
+
+msgid "ISO_4217.LYD"
+msgstr "ISO_4217.LYD"
+
+msgid "ISO_4217.MAD"
+msgstr "ISO_4217.MAD"
+
+msgid "ISO_4217.MDL"
+msgstr "ISO_4217.MDL"
+
+msgid "ISO_4217.MGA"
+msgstr "ISO_4217.MGA"
+
+msgid "ISO_4217.MKD"
+msgstr "ISO_4217.MKD"
+
+msgid "ISO_4217.MMK"
+msgstr "ISO_4217.MMK"
+
+msgid "ISO_4217.MNT"
+msgstr "ISO_4217.MNT"
+
+msgid "ISO_4217.MOP"
+msgstr "ISO_4217.MOP"
+
+msgid "ISO_4217.MRO"
+msgstr "ISO_4217.MRO"
+
+msgid "ISO_4217.MUR"
+msgstr "ISO_4217.MUR"
+
+msgid "ISO_4217.MVR"
+msgstr "ISO_4217.MVR"
+
+msgid "ISO_4217.MWK"
+msgstr "ISO_4217.MWK"
+
+msgid "ISO_4217.MXN"
+msgstr "ISO_4217.MXN"
+
+msgid "ISO_4217.MYR"
+msgstr "ISO_4217.MYR"
+
+msgid "ISO_4217.MZN"
+msgstr "ISO_4217.MZN"
+
+msgid "ISO_4217.NAD"
+msgstr "ISO_4217.NAD"
+
+msgid "ISO_4217.NGN"
+msgstr "ISO_4217.NGN"
+
+msgid "ISO_4217.NIO"
+msgstr "ISO_4217.NIO"
+
+msgid "ISO_4217.NOK"
+msgstr "ISO_4217.NOK"
+
+msgid "ISO_4217.NPR"
+msgstr "ISO_4217.NPR"
+
+msgid "ISO_4217.NZD"
+msgstr "ISO_4217.NZD"
+
+msgid "ISO_4217.OMR"
+msgstr "ISO_4217.OMR"
+
+msgid "ISO_4217.PAB"
+msgstr "ISO_4217.PAB"
+
+msgid "ISO_4217.PEN"
+msgstr "ISO_4217.PEN"
+
+msgid "ISO_4217.PGK"
+msgstr "ISO_4217.PGK"
+
+msgid "ISO_4217.PHP"
+msgstr "ISO_4217.PHP"
+
+msgid "ISO_4217.PKR"
+msgstr "ISO_4217.PKR"
+
+msgid "ISO_4217.PLN"
+msgstr "ISO_4217.PLN"
+
+msgid "ISO_4217.PYG"
+msgstr "ISO_4217.PYG"
+
+msgid "ISO_4217.QAR"
+msgstr "ISO_4217.QAR"
+
+msgid "ISO_4217.RON"
+msgstr "ISO_4217.RON"
+
+msgid "ISO_4217.RSD"
+msgstr "ISO_4217.RSD"
+
+msgid "ISO_4217.RUB"
+msgstr "ISO_4217.RUB"
+
+msgid "ISO_4217.RWF"
+msgstr "ISO_4217.RWF"
+
+msgid "ISO_4217.SAR"
+msgstr "ISO_4217.SAR"
+
+msgid "ISO_4217.SBD"
+msgstr "ISO_4217.SBD"
+
+msgid "ISO_4217.SCR"
+msgstr "ISO_4217.SCR"
+
+msgid "ISO_4217.SDG"
+msgstr "ISO_4217.SDG"
+
+msgid "ISO_4217.SEK"
+msgstr "ISO_4217.SEK"
+
+msgid "ISO_4217.SGD"
+msgstr "ISO_4217.SGD"
+
+msgid "ISO_4217.SHP"
+msgstr "ISO_4217.SHP"
+
+msgid "ISO_4217.SLL"
+msgstr "ISO_4217.SLL"
+
+msgid "ISO_4217.SOS"
+msgstr "ISO_4217.SOS"
+
+msgid "ISO_4217.SRD"
+msgstr "ISO_4217.SRD"
+
+msgid "ISO_4217.SSP"
+msgstr "ISO_4217.SSP"
+
+msgid "ISO_4217.STD"
+msgstr "ISO_4217.STD"
+
+msgid "ISO_4217.SVC"
+msgstr "ISO_4217.SVC"
+
+msgid "ISO_4217.SYP"
+msgstr "ISO_4217.SYP"
+
+msgid "ISO_4217.SZL"
+msgstr "ISO_4217.SZL"
+
+msgid "ISO_4217.THB"
+msgstr "ISO_4217.THB"
+
+msgid "ISO_4217.TJS"
+msgstr "ISO_4217.TJS"
+
+msgid "ISO_4217.TMT"
+msgstr "ISO_4217.TMT"
+
+msgid "ISO_4217.TND"
+msgstr "ISO_4217.TND"
+
+msgid "ISO_4217.TOP"
+msgstr "ISO_4217.TOP"
+
+msgid "ISO_4217.TRY"
+msgstr "ISO_4217.TRY"
+
+msgid "ISO_4217.TTD"
+msgstr "ISO_4217.TTD"
+
+msgid "ISO_4217.TWD"
+msgstr "ISO_4217.TWD"
+
+msgid "ISO_4217.TZS"
+msgstr "ISO_4217.TZS"
+
+msgid "ISO_4217.UAH"
+msgstr "ISO_4217.UAH"
+
+msgid "ISO_4217.UGX"
+msgstr "ISO_4217.UGX"
+
+msgid "ISO_4217.USD"
+msgstr "ISO_4217.USD"
+
+msgid "ISO_4217.UYU"
+msgstr "ISO_4217.UYU"
+
+msgid "ISO_4217.UZS"
+msgstr "ISO_4217.UZS"
+
+msgid "ISO_4217.VEF"
+msgstr "ISO_4217.VEF"
+
+msgid "ISO_4217.VND"
+msgstr "ISO_4217.VND"
+
+msgid "ISO_4217.VUV"
+msgstr "ISO_4217.VUV"
+
+msgid "ISO_4217.WST"
+msgstr "ISO_4217.WST"
+
+msgid "ISO_4217.XAF"
+msgstr "ISO_4217.XAF"
+
+msgid "ISO_4217.XAG"
+msgstr "ISO_4217.XAG"
+
+msgid "ISO_4217.XAU"
+msgstr "ISO_4217.XAU"
+
+msgid "ISO_4217.XBA"
+msgstr "ISO_4217.XBA"
+
+msgid "ISO_4217.XBB"
+msgstr "ISO_4217.XBB"
+
+msgid "ISO_4217.XBC"
+msgstr "ISO_4217.XBC"
+
+msgid "ISO_4217.XBD"
+msgstr "ISO_4217.XBD"
+
+msgid "ISO_4217.XCD"
+msgstr "ISO_4217.XCD"
+
+msgid "ISO_4217.XDR"
+msgstr "ISO_4217.XDR"
+
+msgid "ISO_4217.XOF"
+msgstr "ISO_4217.XOF"
+
+msgid "ISO_4217.XPD"
+msgstr "ISO_4217.XPD"
+
+msgid "ISO_4217.XPF"
+msgstr "ISO_4217.XPF"
+
+msgid "ISO_4217.XPT"
+msgstr "ISO_4217.XPT"
+
+msgid "ISO_4217.XSU"
+msgstr "ISO_4217.XSU"
+
+msgid "ISO_4217.XTS"
+msgstr "ISO_4217.XTS"
+
+msgid "ISO_4217.XUA"
+msgstr "ISO_4217.XUA"
+
+msgid "ISO_4217.XXX"
+msgstr "ISO_4217.XXX"
+
+msgid "ISO_4217.YER"
+msgstr "ISO_4217.YER"
+
+msgid "ISO_4217.ZAR"
+msgstr "ISO_4217.ZAR"
+
+msgid "ISO_4217.ZMW"
+msgstr "ISO_4217.ZMW"
+
+msgid "ISO_4217.ZWL"
+msgstr "ISO_4217.ZWL"
