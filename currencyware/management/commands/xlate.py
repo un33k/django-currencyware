@@ -80,7 +80,7 @@ class Command(BaseCommand):
             if not success:
                 break
             if self.verbosity > 1:
-                print(text, value, target)
+                print(text, value, target_locale)
             target_po[index].msgstr = value
             target_po.save()
 
