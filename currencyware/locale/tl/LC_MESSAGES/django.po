@@ -9,8 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iso_4217\n"
-"Report-Msgid-Bugs-To: Debian iso-codes team <pkg-isocodes-devel@lists.alioth."
-"debian.org>\n"
+"Report-Msgid-Bugs-To: Debian iso-codes team <pkg-isocodes-devel@lists.alioth.debian.org>\n"
 "POT-Creation-Date: 2016-03-05 21:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -41,7 +40,7 @@ msgid "ISO_4217.ARS"
 msgstr "Argentine Peso"
 
 msgid "ISO_4217.AUD"
-msgstr "Australian Dollar"
+msgstr "Australian dollar"
 
 msgid "ISO_4217.AWG"
 msgstr "Aruban Florin"
@@ -50,7 +49,7 @@ msgid "ISO_4217.AZN"
 msgstr "Azerbaijanian Manat"
 
 msgid "ISO_4217.BAM"
-msgstr "Convertible Mark"
+msgstr "Mapapalitang Mark"
 
 msgid "ISO_4217.BBD"
 msgstr "Barbados Dollar"
@@ -95,13 +94,13 @@ msgid "ISO_4217.BZD"
 msgstr "Belize Dollar"
 
 msgid "ISO_4217.CAD"
-msgstr "Canadian Dollar"
+msgstr "Canadian dollar"
 
 msgid "ISO_4217.CDF"
 msgstr "Congolese Franc"
 
 msgid "ISO_4217.CHF"
-msgstr "Swiss Franc"
+msgstr "Swiss franc"
 
 msgid "ISO_4217.CLP"
 msgstr "Chilean Peso"
@@ -146,7 +145,7 @@ msgid "ISO_4217.ERN"
 msgstr "Nakfa"
 
 msgid "ISO_4217.ETB"
-msgstr "Ethiopian Birr"
+msgstr "Etyopya Birr"
 
 msgid "ISO_4217.EUR"
 msgstr "Euro"
@@ -200,7 +199,7 @@ msgid "ISO_4217.IDR"
 msgstr "Rupiah"
 
 msgid "ISO_4217.ILS"
-msgstr "New Israeli Sheqel"
+msgstr "Bagong Israeli Sheqel"
 
 msgid "ISO_4217.INR"
 msgstr "Indian Rupee"
@@ -239,7 +238,7 @@ msgid "ISO_4217.KPW"
 msgstr "North Korean Won"
 
 msgid "ISO_4217.KRW"
-msgstr "Won"
+msgstr "Nanalo"
 
 msgid "ISO_4217.KWD"
 msgstr "Kuwaiti Dinar"
@@ -305,7 +304,7 @@ msgid "ISO_4217.MXN"
 msgstr "Mexican Peso"
 
 msgid "ISO_4217.MYR"
-msgstr "Malaysian Ringgit"
+msgstr "Ringgit ng Malaysia"
 
 msgid "ISO_4217.MZN"
 msgstr "Mozambique Metical"
@@ -380,7 +379,7 @@ msgid "ISO_4217.SDG"
 msgstr "Sudanese Pound"
 
 msgid "ISO_4217.SEK"
-msgstr "Swedish Krona"
+msgstr "Suweko Krona"
 
 msgid "ISO_4217.SGD"
 msgstr "Singapore Dollar"
@@ -398,7 +397,7 @@ msgid "ISO_4217.SRD"
 msgstr "Surinam Dollar"
 
 msgid "ISO_4217.SSP"
-msgstr "South Sudanese Pound"
+msgstr "South Sudan Pound"
 
 msgid "ISO_4217.STD"
 msgstr "Dobra"
@@ -419,22 +418,22 @@ msgid "ISO_4217.TJS"
 msgstr "Somoni"
 
 msgid "ISO_4217.TMT"
-msgstr "Turkmenistan New Manat"
+msgstr "Turkmenistan Bagong Manat"
 
 msgid "ISO_4217.TND"
 msgstr "Tunisian Dinar"
 
 msgid "ISO_4217.TOP"
-msgstr "Pa’anga"
+msgstr "Pa&#39;anga"
 
 msgid "ISO_4217.TRY"
 msgstr "Turkish Lira"
 
 msgid "ISO_4217.TTD"
-msgstr "Trinidad and Tobago Dollar"
+msgstr "Trinidad at Tobago Dollar"
 
 msgid "ISO_4217.TWD"
-msgstr "New Taiwan Dollar"
+msgstr "Bagong Taiwan Dollar"
 
 msgid "ISO_4217.TZS"
 msgstr "Tanzanian Shilling"
@@ -473,31 +472,31 @@ msgid "ISO_4217.XAG"
 msgstr "Silver"
 
 msgid "ISO_4217.XAU"
-msgstr "Gold"
+msgstr "Ginto"
 
 msgid "ISO_4217.XBA"
-msgstr "Bond Markets Unit European Composite Unit (EURCO)"
+msgstr "Unit ng Merkado ng Yunit ng European Composite Unit (EURCO)"
 
 msgid "ISO_4217.XBB"
-msgstr "Bond Markets Unit European Monetary Unit (E.M.U.-6)"
+msgstr "Unit ng Merkado ng Yunit ng European Monetary Unit (EMU-6)"
 
 msgid "ISO_4217.XBC"
-msgstr "Bond Markets Unit European Unit of Account 9 (E.U.A.-9)"
+msgstr "Unit ng Merkado ng Yunit ng European Unit ng Account 9 (EUA-9)"
 
 msgid "ISO_4217.XBD"
-msgstr "Bond Markets Unit European Unit of Account 17 (E.U.A.-17)"
+msgstr "Mga Merkado ng Yunit ng Unyon ng European Unit ng Account 17 (EUA-17)"
 
 msgid "ISO_4217.XCD"
 msgstr "East Caribbean Dollar"
 
 msgid "ISO_4217.XDR"
-msgstr "SDR (Special Drawing Right)"
+msgstr "SDR (Espesyal na Pagguhit ng Kanan)"
 
 msgid "ISO_4217.XOF"
 msgstr "CFA Franc BCEAO"
 
 msgid "ISO_4217.XPD"
-msgstr "Palladium"
+msgstr "Paleydyum"
 
 msgid "ISO_4217.XPF"
 msgstr "CFP Franc"
@@ -509,16 +508,19 @@ msgid "ISO_4217.XSU"
 msgstr "Sucre"
 
 msgid "ISO_4217.XTS"
-msgstr "Codes specifically reserved for testing purposes"
+msgstr ""
+"Ang mga code na partikular na nakalaan para sa mga layunin ng pagsubok"
 
 msgid "ISO_4217.XUA"
-msgstr "ADB Unit of Account"
+msgstr "ADB Unit ng Account"
 
 msgid "ISO_4217.XXX"
-msgstr "The codes assigned for transactions where no currency is involved"
+msgstr ""
+"Ang mga code na itinalaga para sa mga transaksyon kung saan walang pera ang "
+"nasasangkot"
 
 msgid "ISO_4217.YER"
-msgstr "Yemeni Rial"
+msgstr "Yemen Rial"
 
 msgid "ISO_4217.ZAR"
 msgstr "Rand"

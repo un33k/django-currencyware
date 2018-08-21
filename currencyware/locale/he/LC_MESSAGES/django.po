@@ -9,8 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iso_4217\n"
-"Report-Msgid-Bugs-To: Debian iso-codes team <pkg-isocodes-devel@lists.alioth."
-"debian.org>\n"
+"Report-Msgid-Bugs-To: Debian iso-codes team <pkg-isocodes-devel@lists.alioth.debian.org>\n"
 "POT-Creation-Date: 2016-03-05 21:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -20,511 +19,511 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "ISO_4217.AED"
-msgstr "UAE Dirham"
+msgstr "דירהם של איחוד האמירויות הערביות"
 
 msgid "ISO_4217.AFN"
-msgstr "Afghani"
+msgstr "אפגני"
 
 msgid "ISO_4217.ALL"
-msgstr "Lek"
+msgstr "לק"
 
 msgid "ISO_4217.AMD"
-msgstr "Armenian Dram"
+msgstr "דראם ארמני"
 
 msgid "ISO_4217.ANG"
-msgstr "Netherlands Antillean Guilder"
+msgstr "הולנד אנטיליאן גילדן"
 
 msgid "ISO_4217.AOA"
-msgstr "Kwanza"
+msgstr "קוואנזה"
 
 msgid "ISO_4217.ARS"
-msgstr "Argentine Peso"
+msgstr "פזו ארגנטינאי"
 
 msgid "ISO_4217.AUD"
-msgstr "Australian Dollar"
+msgstr "דולר אוסטרלי"
 
 msgid "ISO_4217.AWG"
-msgstr "Aruban Florin"
+msgstr "ארובן פלורין"
 
 msgid "ISO_4217.AZN"
-msgstr "Azerbaijanian Manat"
+msgstr "אזרביג&#39;אן"
 
 msgid "ISO_4217.BAM"
-msgstr "Convertible Mark"
+msgstr "מארק להמרה"
 
 msgid "ISO_4217.BBD"
-msgstr "Barbados Dollar"
+msgstr "דולר ברבדוס"
 
 msgid "ISO_4217.BDT"
-msgstr "Taka"
+msgstr "טאקה"
 
 msgid "ISO_4217.BGN"
-msgstr "Bulgarian Lev"
+msgstr "לב בולגרי"
 
 msgid "ISO_4217.BHD"
-msgstr "Bahraini Dinar"
+msgstr "דינר בחרייני"
 
 msgid "ISO_4217.BIF"
-msgstr "Burundi Franc"
+msgstr "פרנק בורונדי"
 
 msgid "ISO_4217.BMD"
-msgstr "Bermudian Dollar"
+msgstr "דולר ברמודיאני"
 
 msgid "ISO_4217.BND"
-msgstr "Brunei Dollar"
+msgstr "דולר ברוניי"
 
 msgid "ISO_4217.BOB"
-msgstr "Boliviano"
+msgstr "בוליביאנו"
 
 msgid "ISO_4217.BRL"
-msgstr "Brazilian Real"
+msgstr "ריאל ברזילאי"
 
 msgid "ISO_4217.BSD"
-msgstr "Bahamian Dollar"
+msgstr "דולר בהאמי"
 
 msgid "ISO_4217.BTN"
-msgstr "Ngultrum"
+msgstr "נגולטרום"
 
 msgid "ISO_4217.BWP"
-msgstr "Pula"
+msgstr "פולה"
 
 msgid "ISO_4217.BYR"
-msgstr "Belarusian Ruble"
+msgstr "בלארוסית רובל"
 
 msgid "ISO_4217.BZD"
-msgstr "Belize Dollar"
+msgstr "דולר בליזי"
 
 msgid "ISO_4217.CAD"
-msgstr "Canadian Dollar"
+msgstr "דולר קנדי"
 
 msgid "ISO_4217.CDF"
-msgstr "Congolese Franc"
+msgstr "פרנק קונגוליאני"
 
 msgid "ISO_4217.CHF"
-msgstr "Swiss Franc"
+msgstr "פרנק שוויצרי"
 
 msgid "ISO_4217.CLP"
-msgstr "Chilean Peso"
+msgstr "פזו צ &#39;יליאני"
 
 msgid "ISO_4217.CNY"
-msgstr "Yuan Renminbi"
+msgstr "יואן רנמינבי"
 
 msgid "ISO_4217.COP"
-msgstr "Colombian Peso"
+msgstr "פזו קולומביאני"
 
 msgid "ISO_4217.CRC"
-msgstr "Costa Rican Colon"
+msgstr "קולון קוסטה ריקה"
 
 msgid "ISO_4217.CUC"
-msgstr "Peso Convertible"
+msgstr "פזו להמרה"
 
 msgid "ISO_4217.CUP"
-msgstr "Cuban Peso"
+msgstr "פזו קובני"
 
 msgid "ISO_4217.CVE"
-msgstr "Cabo Verde Escudo"
+msgstr "קאבו ורדה אסקודו"
 
 msgid "ISO_4217.CZK"
-msgstr "Czech Koruna"
+msgstr "קורונה צ&#39;כית"
 
 msgid "ISO_4217.DJF"
-msgstr "Djibouti Franc"
+msgstr "פרנק ג &#39;יבוטי"
 
 msgid "ISO_4217.DKK"
-msgstr "Danish Krone"
+msgstr "דנית כתר"
 
 msgid "ISO_4217.DOP"
-msgstr "Dominican Peso"
+msgstr "פזו דומיניקני"
 
 msgid "ISO_4217.DZD"
-msgstr "Algerian Dinar"
+msgstr "דינר אלג&#39;יראי"
 
 msgid "ISO_4217.EGP"
-msgstr "Egyptian Pound"
+msgstr "פאונד מצרי"
 
 msgid "ISO_4217.ERN"
-msgstr "Nakfa"
+msgstr "נקה"
 
 msgid "ISO_4217.ETB"
-msgstr "Ethiopian Birr"
+msgstr "ביר ביר"
 
 msgid "ISO_4217.EUR"
-msgstr "Euro"
+msgstr "יוֹרוֹ"
 
 msgid "ISO_4217.FJD"
-msgstr "Fiji Dollar"
+msgstr "דולר פיג &#39;י"
 
 msgid "ISO_4217.FKP"
-msgstr "Falkland Islands Pound"
+msgstr "פאונד איי פוקלנד"
 
 msgid "ISO_4217.GBP"
-msgstr "Pound Sterling"
+msgstr "ליש&quot;ט"
 
 msgid "ISO_4217.GEL"
-msgstr "Lari"
+msgstr "לָארִי"
 
 msgid "ISO_4217.GHS"
-msgstr "Ghana Cedi"
+msgstr "גאנה Cedi"
 
 msgid "ISO_4217.GIP"
-msgstr "Gibraltar Pound"
+msgstr "פאונד גיברלטר"
 
 msgid "ISO_4217.GMD"
-msgstr "Dalasi"
+msgstr "דלאסי"
 
 msgid "ISO_4217.GNF"
-msgstr "Guinea Franc"
+msgstr "פרנק גינאה"
 
 msgid "ISO_4217.GTQ"
-msgstr "Quetzal"
+msgstr "קצאל"
 
 msgid "ISO_4217.GYD"
-msgstr "Guyana Dollar"
+msgstr "דולר גיאנה"
 
 msgid "ISO_4217.HKD"
-msgstr "Hong Kong Dollar"
+msgstr "דולר הונג קונגי"
 
 msgid "ISO_4217.HNL"
-msgstr "Lempira"
+msgstr "למפירה"
 
 msgid "ISO_4217.HRK"
-msgstr "Kuna"
+msgstr "קונה"
 
 msgid "ISO_4217.HTG"
 msgstr "Gourde"
 
 msgid "ISO_4217.HUF"
-msgstr "Forint"
+msgstr "פורנט"
 
 msgid "ISO_4217.IDR"
-msgstr "Rupiah"
+msgstr "רופיה"
 
 msgid "ISO_4217.ILS"
-msgstr "New Israeli Sheqel"
+msgstr "השקל החדש"
 
 msgid "ISO_4217.INR"
-msgstr "Indian Rupee"
+msgstr "רופי הודית"
 
 msgid "ISO_4217.IQD"
-msgstr "Iraqi Dinar"
+msgstr "דינר עיראקי"
 
 msgid "ISO_4217.IRR"
-msgstr "Iranian Rial"
+msgstr "ריאל איראני"
 
 msgid "ISO_4217.ISK"
-msgstr "Iceland Krona"
+msgstr "איסלנד כרונה"
 
 msgid "ISO_4217.JMD"
-msgstr "Jamaican Dollar"
+msgstr "דולר ג &#39;מייקני"
 
 msgid "ISO_4217.JOD"
-msgstr "Jordanian Dinar"
+msgstr "דינר ירדני"
 
 msgid "ISO_4217.JPY"
-msgstr "Yen"
+msgstr "יֵן"
 
 msgid "ISO_4217.KES"
-msgstr "Kenyan Shilling"
+msgstr "שילינג קנייאני"
 
 msgid "ISO_4217.KGS"
-msgstr "Som"
+msgstr "סום"
 
 msgid "ISO_4217.KHR"
-msgstr "Riel"
+msgstr "ריאל"
 
 msgid "ISO_4217.KMF"
-msgstr "Comoro Franc"
+msgstr "פרנק קומורו"
 
 msgid "ISO_4217.KPW"
-msgstr "North Korean Won"
+msgstr "וון צפון קוריאני"
 
 msgid "ISO_4217.KRW"
-msgstr "Won"
+msgstr "זכית"
 
 msgid "ISO_4217.KWD"
-msgstr "Kuwaiti Dinar"
+msgstr "דינר כוויתי"
 
 msgid "ISO_4217.KYD"
-msgstr "Cayman Islands Dollar"
+msgstr "דולר קיימאני"
 
 msgid "ISO_4217.KZT"
-msgstr "Tenge"
+msgstr "טנג"
 
 msgid "ISO_4217.LAK"
-msgstr "Kip"
+msgstr "לָלוּן"
 
 msgid "ISO_4217.LBP"
-msgstr "Lebanese Pound"
+msgstr "לירה לבנונית"
 
 msgid "ISO_4217.LKR"
-msgstr "Sri Lanka Rupee"
+msgstr "רופי סרי לנקי"
 
 msgid "ISO_4217.LRD"
-msgstr "Liberian Dollar"
+msgstr "דולר ליברי"
 
 msgid "ISO_4217.LSL"
-msgstr "Loti"
+msgstr "לוטי"
 
 msgid "ISO_4217.LYD"
-msgstr "Libyan Dinar"
+msgstr "דינר לוב"
 
 msgid "ISO_4217.MAD"
-msgstr "Moroccan Dirham"
+msgstr "דירהאם מרוקאי"
 
 msgid "ISO_4217.MDL"
-msgstr "Moldovan Leu"
+msgstr "ליאו מולדובה"
 
 msgid "ISO_4217.MGA"
-msgstr "Malagasy Ariary"
+msgstr "מלגזי אריארי"
 
 msgid "ISO_4217.MKD"
-msgstr "Denar"
+msgstr "דנר"
 
 msgid "ISO_4217.MMK"
-msgstr "Kyat"
+msgstr "קיאט"
 
 msgid "ISO_4217.MNT"
-msgstr "Tugrik"
+msgstr "טוגריק"
 
 msgid "ISO_4217.MOP"
-msgstr "Pataca"
+msgstr "פאטאקה"
 
 msgid "ISO_4217.MRO"
 msgstr "Ouguiya"
 
 msgid "ISO_4217.MUR"
-msgstr "Mauritius Rupee"
+msgstr "רופי מאוריציוס"
 
 msgid "ISO_4217.MVR"
-msgstr "Rufiyaa"
+msgstr "רופיה"
 
 msgid "ISO_4217.MWK"
-msgstr "Malawi Kwacha"
+msgstr "מלאווי קוואצ&#39;ה"
 
 msgid "ISO_4217.MXN"
-msgstr "Mexican Peso"
+msgstr "פזו מקסיקני"
 
 msgid "ISO_4217.MYR"
-msgstr "Malaysian Ringgit"
+msgstr "רינגיט מלזי"
 
 msgid "ISO_4217.MZN"
-msgstr "Mozambique Metical"
+msgstr "מוזמביק מטאלי"
 
 msgid "ISO_4217.NAD"
-msgstr "Namibia Dollar"
+msgstr "דולר נמיביה"
 
 msgid "ISO_4217.NGN"
-msgstr "Naira"
+msgstr "נאירה"
 
 msgid "ISO_4217.NIO"
-msgstr "Cordoba Oro"
+msgstr "קורדובה אורו"
 
 msgid "ISO_4217.NOK"
-msgstr "Norwegian Krone"
+msgstr "כתר נורבגי"
 
 msgid "ISO_4217.NPR"
-msgstr "Nepalese Rupee"
+msgstr "רופי נפאלי"
 
 msgid "ISO_4217.NZD"
-msgstr "New Zealand Dollar"
+msgstr "דולר ניו זילנדי"
 
 msgid "ISO_4217.OMR"
-msgstr "Rial Omani"
+msgstr "ריאל עומר"
 
 msgid "ISO_4217.PAB"
-msgstr "Balboa"
+msgstr "בלבואה"
 
 msgid "ISO_4217.PEN"
-msgstr "Sol"
+msgstr "סוֹל"
 
 msgid "ISO_4217.PGK"
-msgstr "Kina"
+msgstr "קינה"
 
 msgid "ISO_4217.PHP"
-msgstr "Philippine Peso"
+msgstr "פזו פיליפיני"
 
 msgid "ISO_4217.PKR"
-msgstr "Pakistan Rupee"
+msgstr "רופי פקיסטני"
 
 msgid "ISO_4217.PLN"
-msgstr "Zloty"
+msgstr "זלוטי"
 
 msgid "ISO_4217.PYG"
-msgstr "Guarani"
+msgstr "גואראני"
 
 msgid "ISO_4217.QAR"
-msgstr "Qatari Rial"
+msgstr "ריאל קטרי"
 
 msgid "ISO_4217.RON"
-msgstr "Romanian Leu"
+msgstr "רומנית Leu"
 
 msgid "ISO_4217.RSD"
-msgstr "Serbian Dinar"
+msgstr "דינר סרבי"
 
 msgid "ISO_4217.RUB"
-msgstr "Russian Ruble"
+msgstr "רובל רוסי"
 
 msgid "ISO_4217.RWF"
-msgstr "Rwanda Franc"
+msgstr "פרנק רואנדה"
 
 msgid "ISO_4217.SAR"
-msgstr "Saudi Riyal"
+msgstr "ריאל סעודי"
 
 msgid "ISO_4217.SBD"
-msgstr "Solomon Islands Dollar"
+msgstr "דולר איי שלמה"
 
 msgid "ISO_4217.SCR"
-msgstr "Seychelles Rupee"
+msgstr "רופי סיישלי"
 
 msgid "ISO_4217.SDG"
-msgstr "Sudanese Pound"
+msgstr "לירה סודאנית"
 
 msgid "ISO_4217.SEK"
-msgstr "Swedish Krona"
+msgstr "כתר שבדי"
 
 msgid "ISO_4217.SGD"
-msgstr "Singapore Dollar"
+msgstr "דולר סינגפורי"
 
 msgid "ISO_4217.SHP"
-msgstr "Saint Helena Pound"
+msgstr "פאונד סנט הלנה"
 
 msgid "ISO_4217.SLL"
-msgstr "Leone"
+msgstr "ליאונה"
 
 msgid "ISO_4217.SOS"
-msgstr "Somali Shilling"
+msgstr "שילינג סומלי"
 
 msgid "ISO_4217.SRD"
-msgstr "Surinam Dollar"
+msgstr "דולר סורינאם"
 
 msgid "ISO_4217.SSP"
-msgstr "South Sudanese Pound"
+msgstr "דרום סודן ליש&quot;ט"
 
 msgid "ISO_4217.STD"
-msgstr "Dobra"
+msgstr "דברה"
 
 msgid "ISO_4217.SVC"
-msgstr "El Salvador Colon"
+msgstr "אל סלבדור קולון"
 
 msgid "ISO_4217.SYP"
-msgstr "Syrian Pound"
+msgstr "לירה סורית"
 
 msgid "ISO_4217.SZL"
-msgstr "Lilangeni"
+msgstr "לילנגני"
 
 msgid "ISO_4217.THB"
-msgstr "Baht"
+msgstr "בהט"
 
 msgid "ISO_4217.TJS"
-msgstr "Somoni"
+msgstr "סומוני"
 
 msgid "ISO_4217.TMT"
-msgstr "Turkmenistan New Manat"
+msgstr "טורקמניסטן ניו מאנאט"
 
 msgid "ISO_4217.TND"
-msgstr "Tunisian Dinar"
+msgstr "דינר תוניסאי"
 
 msgid "ISO_4217.TOP"
-msgstr "Pa’anga"
+msgstr "פאאנגה"
 
 msgid "ISO_4217.TRY"
-msgstr "Turkish Lira"
+msgstr "לירה טורקית"
 
 msgid "ISO_4217.TTD"
-msgstr "Trinidad and Tobago Dollar"
+msgstr "דולר טרינידד וטובגו"
 
 msgid "ISO_4217.TWD"
-msgstr "New Taiwan Dollar"
+msgstr "דולר טאיוואני חדש"
 
 msgid "ISO_4217.TZS"
-msgstr "Tanzanian Shilling"
+msgstr "שילינג טנזני"
 
 msgid "ISO_4217.UAH"
 msgstr "Hryvnia"
 
 msgid "ISO_4217.UGX"
-msgstr "Uganda Shilling"
+msgstr "אוגנדה שילינג"
 
 msgid "ISO_4217.USD"
-msgstr "US Dollar"
+msgstr "דולר אמריקאי"
 
 msgid "ISO_4217.UYU"
-msgstr "Peso Uruguayo"
+msgstr "פזו אורוגוואי"
 
 msgid "ISO_4217.UZS"
-msgstr "Uzbekistan Sum"
+msgstr "אוזבקיסטן Sum"
 
 msgid "ISO_4217.VEF"
-msgstr "Bolívar"
+msgstr "בוליבר"
 
 msgid "ISO_4217.VND"
-msgstr "Dong"
+msgstr "דונג"
 
 msgid "ISO_4217.VUV"
-msgstr "Vatu"
+msgstr "ואטו"
 
 msgid "ISO_4217.WST"
-msgstr "Tala"
+msgstr "טאלה"
 
 msgid "ISO_4217.XAF"
-msgstr "CFA Franc BEAC"
+msgstr "פרנק CFA BEAC"
 
 msgid "ISO_4217.XAG"
-msgstr "Silver"
+msgstr "כסף"
 
 msgid "ISO_4217.XAU"
-msgstr "Gold"
+msgstr "זהב"
 
 msgid "ISO_4217.XBA"
-msgstr "Bond Markets Unit European Composite Unit (EURCO)"
+msgstr "יחידת בונד מרכב יחידה אירופית (EURCO)"
 
 msgid "ISO_4217.XBB"
-msgstr "Bond Markets Unit European Monetary Unit (E.M.U.-6)"
+msgstr "היחידה המוניטרית האירופית (EMU-6)"
 
 msgid "ISO_4217.XBC"
-msgstr "Bond Markets Unit European Unit of Account 9 (E.U.A.-9)"
+msgstr "יחידת ה - Bond היחידה היחידה האירופית לחשבונות 9 (EUA - 9)"
 
 msgid "ISO_4217.XBD"
-msgstr "Bond Markets Unit European Unit of Account 17 (E.U.A.-17)"
+msgstr "יחידה לשווקי בונד היחידה האירופית של החשבון 17 (EUA-17)"
 
 msgid "ISO_4217.XCD"
-msgstr "East Caribbean Dollar"
+msgstr "דולר מזרח קריבי"
 
 msgid "ISO_4217.XDR"
-msgstr "SDR (Special Drawing Right)"
+msgstr "SDR (ציור מיוחד מימין)"
 
 msgid "ISO_4217.XOF"
-msgstr "CFA Franc BCEAO"
+msgstr "פרנק CFA BCEAO"
 
 msgid "ISO_4217.XPD"
-msgstr "Palladium"
+msgstr "פלדיום"
 
 msgid "ISO_4217.XPF"
-msgstr "CFP Franc"
+msgstr "CFP פרנק"
 
 msgid "ISO_4217.XPT"
-msgstr "Platinum"
+msgstr "פְּלָטִינָה"
 
 msgid "ISO_4217.XSU"
-msgstr "Sucre"
+msgstr "סוקרה"
 
 msgid "ISO_4217.XTS"
-msgstr "Codes specifically reserved for testing purposes"
+msgstr "קודים שמורים במיוחד למטרות בדיקה"
 
 msgid "ISO_4217.XUA"
-msgstr "ADB Unit of Account"
+msgstr "יחידת חשבון של ADB"
 
 msgid "ISO_4217.XXX"
-msgstr "The codes assigned for transactions where no currency is involved"
+msgstr "הקודים שהוקצו לעסקאות שבהן אין מטבע מעורב"
 
 msgid "ISO_4217.YER"
-msgstr "Yemeni Rial"
+msgstr "ריאל תימני"
 
 msgid "ISO_4217.ZAR"
-msgstr "Rand"
+msgstr "ראנד"
 
 msgid "ISO_4217.ZMW"
-msgstr "Zambian Kwacha"
+msgstr "זאמביאן קוואצ&#39;ה"
 
 msgid "ISO_4217.ZWL"
-msgstr "Zimbabwe Dollar"
+msgstr "דולר זימבבואי"

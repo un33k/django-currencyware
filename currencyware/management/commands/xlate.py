@@ -22,6 +22,11 @@ from ... import defaults as defs
 
 log = logging.getLogger(__name__)
 
+ISO_MAP = {
+  'he': 'iw',
+  'zh-hans': 'zh-cn'
+}
+
 
 class Command(BaseCommand):
     # Experimental 
@@ -70,6 +75,10 @@ class Command(BaseCommand):
         
     def process_target(self, source_pairs, target_locale):
         target_path = os.path.join(self.path, target_locale, 'LC_MESSAGES', 'django.po')
+        if not os.path.isfile(target_path):
+            self.stdout.write('File not found {} ...'.format(target_path))
+            return
+
         target_po = polib.pofile(target_path)
         target_pairs = self.get_source_msg_pairs(target_po)
 
@@ -81,44 +90,11 @@ class Command(BaseCommand):
                 break
             if self.verbosity > 1:
                 print(text, value, target_locale)
-            target_po[index].msgstr = value
+            try:
+                target_po[index].msgstr = value
+            except IndexError as err:
+                continue
             target_po.save()
-
-            #  print(resp)
-            # from_blocks = po.pofile()
-            # for block in from_blocks.units:
-            #     print(block)
-        
-        return
-            # for locale in locales:
-            #     to_locale = os.path.join(self.path, locale, 'LC_MESSAGES', 'django.po')
-            #         with codecs.open(to_locale, 'a+', encoding='utf-8') as to_fp:
-
-            #     self.xlate(to_fp, locale)
-
-    # def xlate(self, from_fp, locale):
-    #     to_locale = os.path.join(self.path, locale, 'LC_MESSAGES', 'django.po')
-    #     with codecs.open(to_locale, 'a+', encoding='utf-8') as fp:
-    #         return 
-
-    #     if os.path.isfile(next):
-            
-    #         locale = locale.replace('_', '-').lower()
-
-    #     resp = requests.get(
-    #         self.GOOGLE_TRANSLATE_URL,
-    #         params={
-    #             'key': self.GOOGLE_API_KEY,
-    #             'q': query,
-    #             'source': 'en',
-    #             'target': locale
-    #         }
-    #     )
-
-    #     if resp.status_code != requests.codes.ok:
-    #         self.stdout.write('Failed to fetch rates ...')
-    #         self.stdout.write(resp.text)
-    #         return
 
     def get_source_msg_pairs(self, po):
         """
@@ -150,6 +126,8 @@ class Command(BaseCommand):
     
 
     def xlate(self, text, target, source='en'):
+        if target in ISO_MAP:
+            target = ISO_MAP[target]
         resp = requests.get(
             self.GOOGLE_TRANSLATE_URL,
             params={

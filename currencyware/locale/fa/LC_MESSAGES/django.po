@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "ISO_4217.AED"
-msgstr "خرابه امارات متحده عربی"
+msgstr "درهم امارات متحده عربی"
 
 msgid "ISO_4217.AFN"
 msgstr "افغانی"

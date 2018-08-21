@@ -9,8 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: iso_4217\n"
-"Report-Msgid-Bugs-To: Debian iso-codes team <pkg-isocodes-devel@lists.alioth."
-"debian.org>\n"
+"Report-Msgid-Bugs-To: Debian iso-codes team <pkg-isocodes-devel@lists.alioth.debian.org>\n"
 "POT-Creation-Date: 2016-03-05 21:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -29,16 +28,16 @@ msgid "ISO_4217.ALL"
 msgstr "Lek"
 
 msgid "ISO_4217.AMD"
-msgstr "Armenian Dram"
+msgstr "Drama Ereyga"
 
 msgid "ISO_4217.ANG"
-msgstr "Netherlands Antillean Guilder"
+msgstr "Netherlands Antillian Guilder"
 
 msgid "ISO_4217.AOA"
 msgstr "Kwanza"
 
 msgid "ISO_4217.ARS"
-msgstr "Argentine Peso"
+msgstr "Peso Argentine"
 
 msgid "ISO_4217.AUD"
 msgstr "Australian Dollar"
@@ -47,13 +46,13 @@ msgid "ISO_4217.AWG"
 msgstr "Aruban Florin"
 
 msgid "ISO_4217.AZN"
-msgstr "Azerbaijanian Manat"
+msgstr "Manataga Manat"
 
 msgid "ISO_4217.BAM"
-msgstr "Convertible Mark"
+msgstr "Kala bedeli karo Mark"
 
 msgid "ISO_4217.BBD"
-msgstr "Barbados Dollar"
+msgstr "Barbados Dool"
 
 msgid "ISO_4217.BDT"
 msgstr "Taka"
@@ -68,7 +67,7 @@ msgid "ISO_4217.BIF"
 msgstr "Burundi Franc"
 
 msgid "ISO_4217.BMD"
-msgstr "Bermudian Dollar"
+msgstr "Berman Dollar"
 
 msgid "ISO_4217.BND"
 msgstr "Brunei Dollar"
@@ -77,7 +76,7 @@ msgid "ISO_4217.BOB"
 msgstr "Boliviano"
 
 msgid "ISO_4217.BRL"
-msgstr "Brazilian Real"
+msgstr "Real Madrid"
 
 msgid "ISO_4217.BSD"
 msgstr "Bahamian Dollar"
@@ -89,13 +88,13 @@ msgid "ISO_4217.BWP"
 msgstr "Pula"
 
 msgid "ISO_4217.BYR"
-msgstr "Belarusian Ruble"
+msgstr "Rubeniya Ruble"
 
 msgid "ISO_4217.BZD"
 msgstr "Belize Dollar"
 
 msgid "ISO_4217.CAD"
-msgstr "Canadian Dollar"
+msgstr "Dollarka Dollar"
 
 msgid "ISO_4217.CDF"
 msgstr "Congolese Franc"
@@ -110,13 +109,13 @@ msgid "ISO_4217.CNY"
 msgstr "Yuan Renminbi"
 
 msgid "ISO_4217.COP"
-msgstr "Colombian Peso"
+msgstr "Peso"
 
 msgid "ISO_4217.CRC"
 msgstr "Costa Rican Colon"
 
 msgid "ISO_4217.CUC"
-msgstr "Peso Convertible"
+msgstr "Isbedelka Peso"
 
 msgid "ISO_4217.CUP"
 msgstr "Cuban Peso"
@@ -131,22 +130,22 @@ msgid "ISO_4217.DJF"
 msgstr "Djibouti Franc"
 
 msgid "ISO_4217.DKK"
-msgstr "Danish Krone"
+msgstr "Kobanheegan"
 
 msgid "ISO_4217.DOP"
 msgstr "Dominican Peso"
 
 msgid "ISO_4217.DZD"
-msgstr "Algerian Dinar"
+msgstr "Algeria Dinar"
 
 msgid "ISO_4217.EGP"
-msgstr "Egyptian Pound"
+msgstr "Masar Pound"
 
 msgid "ISO_4217.ERN"
 msgstr "Nakfa"
 
 msgid "ISO_4217.ETB"
-msgstr "Ethiopian Birr"
+msgstr "Itoobiya Birr"
 
 msgid "ISO_4217.EUR"
 msgstr "Euro"
@@ -155,7 +154,7 @@ msgid "ISO_4217.FJD"
 msgstr "Fiji Dollar"
 
 msgid "ISO_4217.FKP"
-msgstr "Falkland Islands Pound"
+msgstr "Faarland Islands Pound"
 
 msgid "ISO_4217.GBP"
 msgstr "Pound Sterling"
@@ -197,25 +196,25 @@ msgid "ISO_4217.HUF"
 msgstr "Forint"
 
 msgid "ISO_4217.IDR"
-msgstr "Rupiah"
+msgstr "Rupiya"
 
 msgid "ISO_4217.ILS"
-msgstr "New Israeli Sheqel"
+msgstr "Israel cusub"
 
 msgid "ISO_4217.INR"
-msgstr "Indian Rupee"
+msgstr "Rupee Indian"
 
 msgid "ISO_4217.IQD"
-msgstr "Iraqi Dinar"
+msgstr "Ciraaq Dinar"
 
 msgid "ISO_4217.IRR"
-msgstr "Iranian Rial"
+msgstr "Iran Rial"
 
 msgid "ISO_4217.ISK"
 msgstr "Iceland Krona"
 
 msgid "ISO_4217.JMD"
-msgstr "Jamaican Dollar"
+msgstr "Jamaican Dool"
 
 msgid "ISO_4217.JOD"
 msgstr "Jordanian Dinar"
@@ -224,7 +223,7 @@ msgid "ISO_4217.JPY"
 msgstr "Yen"
 
 msgid "ISO_4217.KES"
-msgstr "Kenyan Shilling"
+msgstr "Shilinka Kenya"
 
 msgid "ISO_4217.KGS"
 msgstr "Som"
@@ -236,7 +235,7 @@ msgid "ISO_4217.KMF"
 msgstr "Comoro Franc"
 
 msgid "ISO_4217.KPW"
-msgstr "North Korean Won"
+msgstr "Waqooyiga Kuuriya Won"
 
 msgid "ISO_4217.KRW"
 msgstr "Won"
@@ -254,7 +253,7 @@ msgid "ISO_4217.LAK"
 msgstr "Kip"
 
 msgid "ISO_4217.LBP"
-msgstr "Lebanese Pound"
+msgstr "Pound Pound"
 
 msgid "ISO_4217.LKR"
 msgstr "Sri Lanka Rupee"
@@ -266,7 +265,7 @@ msgid "ISO_4217.LSL"
 msgstr "Loti"
 
 msgid "ISO_4217.LYD"
-msgstr "Libyan Dinar"
+msgstr "Liibiya"
 
 msgid "ISO_4217.MAD"
 msgstr "Moroccan Dirham"
@@ -302,16 +301,16 @@ msgid "ISO_4217.MWK"
 msgstr "Malawi Kwacha"
 
 msgid "ISO_4217.MXN"
-msgstr "Mexican Peso"
+msgstr "Peso Mexico"
 
 msgid "ISO_4217.MYR"
 msgstr "Malaysian Ringgit"
 
 msgid "ISO_4217.MZN"
-msgstr "Mozambique Metical"
+msgstr "Mozambique Maqal"
 
 msgid "ISO_4217.NAD"
-msgstr "Namibia Dollar"
+msgstr "Namibia Dool"
 
 msgid "ISO_4217.NGN"
 msgstr "Naira"
@@ -323,10 +322,10 @@ msgid "ISO_4217.NOK"
 msgstr "Norwegian Krone"
 
 msgid "ISO_4217.NPR"
-msgstr "Nepalese Rupee"
+msgstr "Rupee Nepal"
 
 msgid "ISO_4217.NZD"
-msgstr "New Zealand Dollar"
+msgstr "Dakhliga New Zealand"
 
 msgid "ISO_4217.OMR"
 msgstr "Rial Omani"
@@ -353,16 +352,16 @@ msgid "ISO_4217.PYG"
 msgstr "Guarani"
 
 msgid "ISO_4217.QAR"
-msgstr "Qatari Rial"
+msgstr "Raadiyaha Qatari"
 
 msgid "ISO_4217.RON"
-msgstr "Romanian Leu"
+msgstr "Romaan Leu"
 
 msgid "ISO_4217.RSD"
 msgstr "Serbian Dinar"
 
 msgid "ISO_4217.RUB"
-msgstr "Russian Ruble"
+msgstr "Ruush Ruble"
 
 msgid "ISO_4217.RWF"
 msgstr "Rwanda Franc"
@@ -377,7 +376,7 @@ msgid "ISO_4217.SCR"
 msgstr "Seychelles Rupee"
 
 msgid "ISO_4217.SDG"
-msgstr "Sudanese Pound"
+msgstr "Pound Sudan"
 
 msgid "ISO_4217.SEK"
 msgstr "Swedish Krona"
@@ -392,13 +391,13 @@ msgid "ISO_4217.SLL"
 msgstr "Leone"
 
 msgid "ISO_4217.SOS"
-msgstr "Somali Shilling"
+msgstr "Shilinka Soomaaliga"
 
 msgid "ISO_4217.SRD"
 msgstr "Surinam Dollar"
 
 msgid "ISO_4217.SSP"
-msgstr "South Sudanese Pound"
+msgstr "Koonfurta Suudaan"
 
 msgid "ISO_4217.STD"
 msgstr "Dobra"
@@ -407,7 +406,7 @@ msgid "ISO_4217.SVC"
 msgstr "El Salvador Colon"
 
 msgid "ISO_4217.SYP"
-msgstr "Syrian Pound"
+msgstr "Syria Pound"
 
 msgid "ISO_4217.SZL"
 msgstr "Lilangeni"
@@ -419,25 +418,25 @@ msgid "ISO_4217.TJS"
 msgstr "Somoni"
 
 msgid "ISO_4217.TMT"
-msgstr "Turkmenistan New Manat"
+msgstr "Turkiga Cusub Manat"
 
 msgid "ISO_4217.TND"
-msgstr "Tunisian Dinar"
+msgstr "Tunisia Dinar"
 
 msgid "ISO_4217.TOP"
-msgstr "Pa’anga"
+msgstr "Pa&#39;anga"
 
 msgid "ISO_4217.TRY"
 msgstr "Turkish Lira"
 
 msgid "ISO_4217.TTD"
-msgstr "Trinidad and Tobago Dollar"
+msgstr "Trinidad iyo Tobago Dool"
 
 msgid "ISO_4217.TWD"
 msgstr "New Taiwan Dollar"
 
 msgid "ISO_4217.TZS"
-msgstr "Tanzanian Shilling"
+msgstr "Shilinka Tansaaniya"
 
 msgid "ISO_4217.UAH"
 msgstr "Hryvnia"
@@ -476,22 +475,23 @@ msgid "ISO_4217.XAU"
 msgstr "Gold"
 
 msgid "ISO_4217.XBA"
-msgstr "Bond Markets Unit European Composite Unit (EURCO)"
+msgstr "Qiimaha Suuq-Bixinta Qaybta Isku-Duubka Yurub (EURCO)"
 
 msgid "ISO_4217.XBB"
-msgstr "Bond Markets Unit European Monetary Unit (E.M.U.-6)"
+msgstr "Qiimaha Suuq-Bixinta Qaybta Lacagta Yurub (EMU-6)"
 
 msgid "ISO_4217.XBC"
-msgstr "Bond Markets Unit European Unit of Account 9 (E.U.A.-9)"
+msgstr "Qaybaha Canshuurta Qaybta Cutubka Midowga Yurub ee Xisaab 9 (EUA-9)"
 
 msgid "ISO_4217.XBD"
-msgstr "Bond Markets Unit European Unit of Account 17 (E.U.A.-17)"
+msgstr ""
+"Qaybaha Suuqyada Canshuurta Cutubka Midowga Yurub ee Xisaab 17 (EUA-17)"
 
 msgid "ISO_4217.XCD"
-msgstr "East Caribbean Dollar"
+msgstr "Bariga Caribbean Dollar"
 
 msgid "ISO_4217.XDR"
-msgstr "SDR (Special Drawing Right)"
+msgstr "SDR (Xaqiijinta Gaarka ah)"
 
 msgid "ISO_4217.XOF"
 msgstr "CFA Franc BCEAO"
@@ -509,13 +509,13 @@ msgid "ISO_4217.XSU"
 msgstr "Sucre"
 
 msgid "ISO_4217.XTS"
-msgstr "Codes specifically reserved for testing purposes"
+msgstr "Xeerarka khaasatan loogu talagalay ujeedooyinka imtixaanka"
 
 msgid "ISO_4217.XUA"
-msgstr "ADB Unit of Account"
+msgstr "Unugga ADB ee Xisaabaadka"
 
 msgid "ISO_4217.XXX"
-msgstr "The codes assigned for transactions where no currency is involved"
+msgstr "Xeerarka loo xilsaaray macaamilo aan lacag lahayn"
 
 msgid "ISO_4217.YER"
 msgstr "Yemeni Rial"
@@ -527,4 +527,4 @@ msgid "ISO_4217.ZMW"
 msgstr "Zambian Kwacha"
 
 msgid "ISO_4217.ZWL"
-msgstr "Zimbabwe Dollar"
+msgstr "Zimbabwe Dool"
