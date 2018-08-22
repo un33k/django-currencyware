@@ -1,3 +1,9 @@
+## 0.0.7
+
+Enhancement:
+
+  - Add more translations
+
 ## 0.0.6
 
 Enhancement:
