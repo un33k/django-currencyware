@@ -1,3 +1,9 @@
+## 0.0.9
+
+Bugfix:
+
+  - Fix i18n directoies
+
 ## 0.0.8
 
 Enhancement:
