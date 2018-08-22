@@ -91,7 +91,7 @@ class Command(BaseCommand):
             if self.verbosity > 1:
                 print(text, value, target_locale)
             try:
-                target_po[index].msgstr = value
+                target_po[index].msgstr = self.post_translate_cleanup(value)
             except IndexError as err:
                 continue
             target_po.save()
@@ -111,19 +111,15 @@ class Command(BaseCommand):
         if item.translated() and self.overwrite:
             return True
     
-    def pre_translate_cleanup(self, msgid):
+    def pre_translate_cleanup(self, msgstr):
         """
         Best attempt to ensure google doesn't translate the following
-        %(name)s -> __name__
-        %s       -> __item__
-        %d       -> __number__
         """
-        return re.sub(
-            r'%(?:\((\w+)\))?([sd])',
-            lambda match: r'__{0}__'.format(
-                match.group(1).lower() if match.group(1) else 'number' if match.group(2) == 'd' else 'item'),
-            msgid)
+        return msgstr
     
+    def post_translate_cleanup(self, msgstr):
+        """ Restore reserved placeholders """
+        return msgstr
 
     def xlate(self, text, target, source='en'):
         if target in ISO_MAP:
