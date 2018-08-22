@@ -2,7 +2,7 @@
 
 Bugfix:
 
-  - Fix i18n directoies
+  - Fix i18n directories
 
 ## 0.0.8
 
