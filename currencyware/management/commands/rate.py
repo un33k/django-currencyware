@@ -23,7 +23,7 @@ log = logging.getLogger(__name__)
 class Command(BaseCommand):
     # Translators: admin
     help = "Fetches live rates from open exchange rates api"
-
+    MIN_PURGE_DAYS = 2
     OXR_URL = defs.OPEN_EXCHANGE_RATES_URL
     OXR_KEY = defs.OPEN_EXCHANGE_RATES_API_KEY
     LANGUAGE_CODE = getattr(settings, 'LANGUAGE_CODE', 'en')
@@ -57,9 +57,9 @@ class Command(BaseCommand):
             return
 
         if days:
-            if days < 2:
-                # purge only after 2 days old (compensate for UTC)
-                self.stdout.write('Purge can be done on data 2 days or older')
+            if days < self.MIN_PURGE_DAYS:
+                # purge only after `MIN_PURGE_DAYS` days old (compensate for UTC)
+                self.stdout.write('Purge only possible for data >= {} days'.format(self.MIN_PURGE_DAYS))
                 return
             self.purge(days)
 
@@ -102,8 +102,32 @@ class Command(BaseCommand):
 
 
     def purge(self, days):
-        print('purged')
-        return
-        days_ago = get_days_ago(days)
-        Rate.objects.filter(date__lte=days_ago).delete()
-        self.stdout.write('Purged rates older than ({}) ago from db.'.format(days))
+        did_purge = False
+        for code in defs.ALL_CURRENCY_CODES:
+            for ago in range(self.MIN_PURGE_DAYS, days+1):
+                exact_date = get_days_ago(ago)
+                try:
+                    latest_for_day = Rate.objects.filter(
+                        code=code,
+                        date__year=exact_date.year,
+                        date__month=exact_date.month,
+                        date__day=exact_date.day).latest('date')
+                except Rate.DoesNotExist as err:
+                    continue
+                
+                old_rates = Rate.objects.filter(
+                    code=code,
+                    date__year=exact_date.year,
+                    date__month=exact_date.month,
+                    date__day=exact_date.day).exclude(date=latest_for_day.date)
+            
+                if old_rates:
+                    did_purge = True
+                    old_rates.delete()
+                    if self.verbosity >= 2:
+                        self.stdout.write('Purged rates from ({}) days ago.'.format(ago))
+
+        if did_purge:
+            self.stdout.write('Purged rates older than ({}) ago from db.'.format(days))
+        else:
+            self.stdout.write('Nothing to purge')
