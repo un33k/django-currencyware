@@ -76,14 +76,14 @@ class Currency(models.Model):
     CASE_INSENSITIVE_FIELDS = ['code', 'name']
 
     @property
-    def local_name(self):
+    def native_name(self):
         name = get_display(self.code)
         if self.code in name:
             name = self.name
         return name
 
     def __str__(self):
-        return self.local_name
+        return '{} ({})'.format(self.native_name, self.code)
 
     class Meta:
         # Note: admin:skip
@@ -135,14 +135,14 @@ class Rate(models.Model):
     CASE_INSENSITIVE_FIELDS = ['code', 'name',]
 
     @property
-    def local_name(self):
+    def native_name(self):
         name = get_display(self.code)
         if self.code in name:
             name = self.name
         return name
 
     def __str__(self):
-        return self.local_name
+        return '{} ({})'.format(self.native_name, self.code)
         
     class Meta:
         # Note: admin:skip
