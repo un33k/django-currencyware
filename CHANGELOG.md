@@ -1,3 +1,9 @@
+## 0.1.0
+
+Enhancement:
+
+  - Properly remove old data
+
 ## 0.0.9
 
 Bugfix:
