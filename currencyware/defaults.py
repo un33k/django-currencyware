@@ -37,7 +37,10 @@ PRIORITY_CURRENCY_CODES = getattr(settings, 'PRIORITY_CURRENCY_CODES', [
 
 BASE_CURRENY_CODE = getattr(settings, 'BASE_CURRENY_CODE', 'USD')
 
-OPEN_EXCHANGE_RATES_URL = 'https://openexchangerates.org/api/latest.json'
+# https://openexchangerates.org/api/historical/2001-02-16.json (historical)
+# https://openexchangerates.org/api/latest.json (latest)
+# GET params ?app_id=YOUR_APP_ID&base=GBP (USD is default base)
+OPEN_EXCHANGE_RATES_URL = 'https://openexchangerates.org/api/'
 OPEN_EXCHANGE_RATES_URL = getattr(settings, 'OPEN_EXCHANGE_RATES_URL', OPEN_EXCHANGE_RATES_URL)
 OPEN_EXCHANGE_RATES_API_KEY = getattr(settings, 'OPEN_EXCHANGE_RATES_API_KEY', None)
 

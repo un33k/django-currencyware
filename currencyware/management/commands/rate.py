@@ -24,6 +24,7 @@ class Command(BaseCommand):
     # Translators: admin
     help = "Fetches live rates from open exchange rates api"
     MIN_PURGE_DAYS = 2
+    MAX_CHECKPOINT_DAYS = 30
     OXR_URL = defs.OPEN_EXCHANGE_RATES_URL
     OXR_KEY = defs.OPEN_EXCHANGE_RATES_API_KEY
     LANGUAGE_CODE = getattr(settings, 'LANGUAGE_CODE', 'en')
@@ -32,9 +33,18 @@ class Command(BaseCommand):
         parser.add_argument(
             '--purge',
             action='store',
-            dest='days',
+            dest='purge_days',
             type=int,
             help='Remove rates older than x days'
+        )
+
+        parser.add_argument(
+            '-c',
+            '--checkpoint',
+            action='store',
+            dest='checkpoint_days',
+            type=int,
+            help='Restore missing rates within the last x days'
         )
 
         parser.add_argument(
@@ -49,19 +59,29 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         translation.activate(self.LANGUAGE_CODE)
         self.verbosity = options['verbosity']
-        days = options['days']
+        purge_days = options['purge_days']
+        checkpoint_days = options['checkpoint_days']
         fetch = options['fetch']
 
-        if not (days or fetch):
+        if not (purge_days or fetch):
             self.print_help("", subcommand='rate')
             return
 
-        if days:
-            if days < self.MIN_PURGE_DAYS:
+        if purge_days:
+            if purge_days < self.MIN_PURGE_DAYS:
                 # purge only after `MIN_PURGE_DAYS` days old (compensate for UTC)
                 self.stdout.write('Purge only possible for data >= {} days'.format(self.MIN_PURGE_DAYS))
                 return
-            self.purge(days)
+            self.purge(purge_days)
+
+        if checkpoint_days:
+            confirm = 'yes'
+            if checkpoint_days > self.MAX_CHECKPOINT_DAYS:
+                # restore rates within the last `MAX_CHECKPOINT_DAYS` (mind UTC)
+                self.stdout.write('Restoring rates will hit the api {} times').format(checkpoint_days)
+                confirm = input(_('Are you sure? [yes | no]') % options)
+            if confirm == 'yes':
+                self.restore(checkpoint_days)
 
         if fetch:
             self.fetch()
@@ -70,15 +90,20 @@ class Command(BaseCommand):
 
         if self.verbosity > 2:
             self.stdout.write('Preparing to fetch rates ...')
-
-        resp = requests.get(self.OXR_URL, params={'app_id': self.OXR_KEY, 'base': defs.BASE_CURRENY_CODE})
+        latest_rate_url = requests.compat.urljoin(self.OXR_URL, 'latest.json')
+        resp = requests.get(latest_rate_url, params={'app_id': self.OXR_KEY, 'base': defs.BASE_CURRENY_CODE})
         if resp.status_code != requests.codes.ok:
             self.stdout.write('Failed to fetch rates ...')
             self.stdout.write(resp.text)
             return
 
         data = resp.json()
-        new_count, update_count = 0, 0
+        create_count, update_count = self.add_or_update_rates(data)
+        self.stdout.write('Created {count} currenies'.format(count=create_count))
+        self.stdout.write('Updated {count} currenies'.format(count=update_count))
+
+    def add_or_update_rates(self, data):
+        create_count, update_count = 0, 0
         updated = datetime.fromtimestamp(data['timestamp'], tz=timezone.utc)
         for code, rate in data['rates'].items():
             created = False
@@ -90,15 +115,37 @@ class Command(BaseCommand):
             }
             instance, created = Rate.objects.get_or_create_unique(defaults, ['code', 'date'])
             if created:
-                new_count += 1
+                create_count += 1
             else:
                 update_count += 1
             
             if not instance and self.verbosity >=3:
                 sys.stdout.write('Failed to create rate for ({code})\n'.format(code=code))
+        return create_count, update_count
 
-        self.stdout.write('Created {count} currenies'.format(count=new_count))
-        self.stdout.write('Updated {count} currenies'.format(count=update_count))
+    def checkpoint(self, days):
+        did_checkpoint = False
+        create_count, update_count = 0, 0
+        for ago in range(1, days+1):
+            exact_date = get_days_ago(ago)
+            historical_date = '{}-{}-{}.json'.format(date__year, date__month, date__day)
+            historical_rate_url = requests.compat.urljoin(self.OXR_URL, 'historical', historical_date)
+            resp = requests.get(self.OXR_URL, params={'app_id': self.OXR_KEY, 'base': defs.BASE_CURRENY_CODE})
+            if resp.status_code != requests.codes.ok:
+                if self.verbosity >= 2:
+                    self.stdout.write('Failed to fetch historical rates for {} ...').format(historical_date)
+                    self.stdout.write(resp.text)
+                continue
+
+            Rate.objects.filter(
+                date__year=exact_date.year,
+                date__month=exact_date.month,
+                date__day=exact_date.day).delete()
+        
+            data = resp.json()
+            create_count, update_count = self.add_or_update_rates(data)
+
+        self.stdout.write('Checkpointed {count} currenies'.format(count=create_count))
 
 
     def purge(self, days):
