@@ -2,7 +2,13 @@
 
 Enhancement:
 
-  - Properly remove old data
+  - Add checkpoint of historical rates
+
+## 0.1.0
+
+Enhancement:
+
+  - Properly remove old rates
 
 ## 0.0.9
 

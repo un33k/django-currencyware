@@ -63,7 +63,7 @@ class Command(BaseCommand):
         checkpoint_days = options['checkpoint_days']
         fetch = options['fetch']
 
-        if not (purge_days or fetch):
+        if not (purge_days or checkpoint_days or fetch):
             self.print_help("", subcommand='rate')
             return
 
@@ -81,7 +81,7 @@ class Command(BaseCommand):
                 self.stdout.write('Restoring rates will hit the api {} times').format(checkpoint_days)
                 confirm = input(_('Are you sure? [yes | no]') % options)
             if confirm == 'yes':
-                self.restore(checkpoint_days)
+                self.checkpoint(checkpoint_days)
 
         if fetch:
             self.fetch()
@@ -128,9 +128,9 @@ class Command(BaseCommand):
         create_count, update_count = 0, 0
         for ago in range(1, days+1):
             exact_date = get_days_ago(ago)
-            historical_date = '{}-{}-{}.json'.format(date__year, date__month, date__day)
-            historical_rate_url = requests.compat.urljoin(self.OXR_URL, 'historical', historical_date)
-            resp = requests.get(self.OXR_URL, params={'app_id': self.OXR_KEY, 'base': defs.BASE_CURRENY_CODE})
+            historical_uri = 'historical/{}.json'.format(exact_date.strftime('%Y-%m-%d'))
+            historical_rate_url = requests.compat.urljoin(self.OXR_URL, historical_uri)
+            resp = requests.get(historical_rate_url, params={'app_id': self.OXR_KEY, 'base': defs.BASE_CURRENY_CODE})
             if resp.status_code != requests.codes.ok:
                 if self.verbosity >= 2:
                     self.stdout.write('Failed to fetch historical rates for {} ...').format(historical_date)
