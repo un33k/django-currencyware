@@ -16,6 +16,7 @@ from toolware.utils.generic import get_days_ago
 from ...currency import get_display
 from ...models import Rate, Currency
 from ... import defaults as defs
+from ... import utils as util
 
 log = logging.getLogger(__name__)
 
@@ -78,8 +79,8 @@ class Command(BaseCommand):
             confirm = 'yes'
             if checkpoint_days > self.MAX_CHECKPOINT_DAYS:
                 # restore rates within the last `MAX_CHECKPOINT_DAYS` (mind UTC)
-                self.stdout.write('Restoring rates will hit the api {} times').format(checkpoint_days)
-                confirm = input(_('Are you sure? [yes | no]') % options)
+                self.stdout.write('Restoring rates will hit the api {} times'.format(checkpoint_days))
+                confirm = input('Are you sure? [yes | no]: ')
             if confirm == 'yes':
                 self.checkpoint(checkpoint_days)
 
@@ -91,7 +92,7 @@ class Command(BaseCommand):
         if self.verbosity > 2:
             self.stdout.write('Preparing to fetch rates ...')
         latest_rate_url = requests.compat.urljoin(self.OXR_URL, 'latest.json')
-        resp = requests.get(latest_rate_url, params={'app_id': self.OXR_KEY, 'base': defs.BASE_CURRENY_CODE})
+        resp = self.fetch_url(latest_rate_url, params={'app_id': self.OXR_KEY, 'base': defs.BASE_CURRENY_CODE})
         if resp.status_code != requests.codes.ok:
             self.stdout.write('Failed to fetch rates ...')
             self.stdout.write(resp.text)
@@ -130,7 +131,7 @@ class Command(BaseCommand):
             exact_date = get_days_ago(ago)
             historical_uri = 'historical/{}.json'.format(exact_date.strftime('%Y-%m-%d'))
             historical_rate_url = requests.compat.urljoin(self.OXR_URL, historical_uri)
-            resp = requests.get(historical_rate_url, params={'app_id': self.OXR_KEY, 'base': defs.BASE_CURRENY_CODE})
+            resp = self.fetch_url(historical_rate_url, params={'app_id': self.OXR_KEY, 'base': defs.BASE_CURRENY_CODE})
             if resp.status_code != requests.codes.ok:
                 if self.verbosity >= 2:
                     self.stdout.write('Failed to fetch historical rates for {} ...').format(historical_date)
@@ -178,3 +179,8 @@ class Command(BaseCommand):
             self.stdout.write('Purged rates older than ({}) ago from db.'.format(days))
         else:
             self.stdout.write('Nothing to purge')
+
+    @util.rate_limited(defs.OPEN_EXCHANGE_RATES_API_CALLS_PER_SECONDS)
+    def fetch_url(self, url, params):
+        resp = requests.get(url, params=params)
+        return resp
