@@ -1,4 +1,10 @@
-## 0.1.0
+## 0.1.2
+
+Bugfix:
+
+  - Proper rate conversion through base currency 
+
+## 0.1.1
 
 Enhancement:
 

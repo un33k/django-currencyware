@@ -164,7 +164,7 @@ class Rate(models.Model):
         try:
             source_rate = cls.objects.filter(code=source).latest('date')
             if target == defs.BASE_CURRENY_CODE:
-                return source_rate.rate
+                return 1 / source_rate.rate
             target_rate = cls.objects.filter(code=target).latest('date')
             if source_rate and target_rate:
                 rate = target_rate.rate / source_rate.rate
