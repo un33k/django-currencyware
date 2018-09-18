@@ -1,3 +1,9 @@
+## 0.1.3
+
+Enhancement:
+
+  - Compile translations
+  
 ## 0.1.2
 
 Bugfix:

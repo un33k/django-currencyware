@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "ISO_4217.AED"
-msgstr "درهم امارات متحده عربی"
+msgstr "درهم امارات متحده"
 
 msgid "ISO_4217.AFN"
 msgstr "افغانی"
@@ -31,7 +31,7 @@ msgid "ISO_4217.AMD"
 msgstr "ارامنی درام"
 
 msgid "ISO_4217.ANG"
-msgstr "قاهره هلند Antillean"
+msgstr "قاهره هلند"
 
 msgid "ISO_4217.AOA"
 msgstr "کوانزا"
@@ -199,7 +199,7 @@ msgid "ISO_4217.IDR"
 msgstr "روپیه"
 
 msgid "ISO_4217.ILS"
-msgstr "اسلحه جدید اسراییل"
+msgstr "شيكل جديد اسراییل"
 
 msgid "ISO_4217.INR"
 msgstr "روپیه هند"
@@ -475,16 +475,16 @@ msgid "ISO_4217.XAU"
 msgstr "طلا"
 
 msgid "ISO_4217.XBA"
-msgstr "واحد مرکزی باند اروپا واحد کامپوزیتی (EURCO)"
+msgstr "واحد مرکزی باند اروپا واحد کامپوزیتی"
 
 msgid "ISO_4217.XBB"
-msgstr "واحد پول نقد واحد پولی اروپا (EMU-6)"
+msgstr "واحد پول نقد واحد پولی اروپا"
 
 msgid "ISO_4217.XBC"
-msgstr "واحد اوراق بهادار واحد واحد حسابرسی اروپا 9 (EUA-9)"
+msgstr "واحد اوراق بهادار واحد واحد حسابرسی اروپا 9"
 
 msgid "ISO_4217.XBD"
-msgstr "واحد اوراق بهادار واحد واحد اروپایی حساب 17 (EUA-17)"
+msgstr "واحد اوراق بهادار واحد واحد اروپایی حساب 17"
 
 msgid "ISO_4217.XCD"
 msgstr "دلار کارائیب شرقی"
